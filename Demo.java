@@ -1,5 +1,3 @@
-//This is newBranch2
-
 public class Demo
 {
 

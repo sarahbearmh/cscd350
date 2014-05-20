@@ -1,6 +1,7 @@
+package trivia;
 import java.sql.*;
 
-public class triviaMazeQuestions {
+public class TriviaMazeQuestion {
 
 	public static void main(String[] args) 
 	{

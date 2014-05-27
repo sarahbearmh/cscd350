@@ -8,3 +8,7 @@ Mount Kilimanjaro is the tallest mountain in the world., false
 Opposite sides of a die always add up to seven., true
 The max amount of times a dry, square piece of paper can be folded exactly in half is 6., false
 White Chocolate can kill dogs., false
+Opposite sides of a die always add up to seven., true
+The max amount of times a dry, square piece of paper can be folded exactly in half is 6., false
+White Chocolate can kill dogs., false
+

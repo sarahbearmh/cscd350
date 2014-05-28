@@ -10,8 +10,35 @@ public class Maze {
       this.row = 0;
       this.col = 0;
       this.maze = new  Room[size][size];
+     
    }//end maze
    
+   public boolean traverse(int x, int y)
+   {
+	   boolean done = false;
+	  if(x < 0 || x > this.size || y < 0 || y > this.size)
+	  {  
+	  if(x == this.size -1 && y == this.size -1 && this.maze[x-1][y].getBottom().getLocked()!=false && this.maze[x][y-1].getRight().getLocked()!=false)
+		  return true;
+	  else
+	  {	
+		  if(this.maze[x][y].getBottom().getLocked()!=false)
+			  done = traverse(x+1, y); //down
+		  if(!done && this.maze[x][y].getRight().getLocked()!=false)
+			  done = traverse(x, y+1); //right
+		  if(!done && this.maze[x-1][y].getBottom().getLocked()!=false)
+			  done = traverse(x-1, y); //up
+		  if(!done && this.maze[x][y-1].getRight().getLocked()!=false)
+			  done = traverse(x, y-1); //left
+	  }
+	  }
+	   return done;
+   }//end traverse
+   
+   public boolean checkTrap()
+   {
+	  return  traverse(this.row, this.col);
+   }//end checkTrap
    public void printMaze()
    {
       int x = 0, y;
@@ -52,7 +79,7 @@ public class Maze {
             }
             else if(this.maze[x][m].getBottom().getLocked() ==true && this.maze[x][m].getBottom().getOpen() ==false) //door is locked
             {
-               System.out.print("##");
+               System.out.print(" ##");
             }
             else if(this.maze[x][m].getBottom().getLocked() ==false && this.maze[x][m].getBottom().getOpen() ==false) //answer question door
             {

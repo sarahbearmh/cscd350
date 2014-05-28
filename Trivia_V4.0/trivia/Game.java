@@ -5,6 +5,7 @@ public class Game
    public static void main(String[] args)
    {
 	   boolean win = false;
+	   boolean lose  = false;
 	   int sizeOfMaze = 0;
 	   String name = "";
 	   String sizeString = "";
@@ -33,6 +34,7 @@ public class Game
 	 
 	   String move;
     	
+    	
 	   while((curMaze.getRow() < sizeOfMaze) && (curMaze.getCol() < sizeOfMaze) && !win)
 	   {   
       curMaze.printMaze();
@@ -43,18 +45,29 @@ public class Game
 	   String value = curMaze.move(move);
 	   System.out.println(value);
 	   
-	   
+	//  boolean myLose = curMaze.checkTrap();
+	  
       if(curMaze.getRow() == sizeOfMaze -1 && curMaze.getCol() == sizeOfMaze - 1)
 	   {
+    	  	curMaze.printMaze();
 		   System.out.println("You Win");
 	   win = true;
 	   }
+      /*
+      else if(myLose==false)
+    	  curMaze.printMaze();
+    	  System.out.println("All locked up. You lose.");
+    	  lose = true;
+      }
+      */
+  
+	   
+	   
+	   
+	   
 	   }
-	   
 	   kb.close();
-	   
-	   
    }
-
+  
 }//end class
 	

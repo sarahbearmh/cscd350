@@ -34,9 +34,12 @@ public class Door {
    {
 	   Connection c = null;
 	   Statement stmt = null;
-
+	   
 	   try
 	   {
+		   int count = 0;//# of records in the table
+		   questionType = rand.nextInt(2); 
+		   System.out.println(questionType);
 		   // in database 0 = false, 1 = true
 		   //if randId == 0, then trigger a t/f question
 		   Class.forName("org.sqlite.JDBC");
@@ -44,23 +47,30 @@ public class Door {
 		   
 		   if(questionType == 0)
 		   {
+			   stmt = c.createStatement();
+			   String sql1 = "SELECT COUNT(*) FROM TrueFalseQuestion";
+			   ResultSet res = stmt.executeQuery(sql1);
+			   
+			   while(res.next())
+			   {
+				   count = res.getInt(1);
+			   }
+			   
+			   System.out.println(count);
+			   
 			   System.out.println("True/False Question");
 			   stmt = c.createStatement();
-			   ResultSet res = stmt.executeQuery("SELECT id, QUESTION from TrueFalseQuestion WHERE PLAYED = 0");
+			   res = stmt.executeQuery("SELECT id, QUESTION from TrueFalseQuestion WHERE PLAYED = 0");
 			   
 			   mainID = res.getInt("id");
 			   //System.out.println("MainID: "+mainID);
 			   String question = res.getString("question");
 			   System.out.println(question);
-			  
-			   //test
-			   //uncomment when ready to set questions to 1 after questions is used.
-			   
-			   String sql = "UPDATE TrueFalseQuestion SET PLAYED = 0 WHERE id = '"+mainID+"'";
+
+			   String sql = "UPDATE TrueFalseQuestion SET PLAYED = 1 WHERE id = '"+mainID+"'";
 			   stmt.executeUpdate(sql);
 			   
 			   //test test test
-			   
 			   /*
 			   sql = "SELECT * FROM TrueFalseQuestion"; 
 			   res = stmt.executeQuery(sql);
@@ -85,14 +95,32 @@ public class Door {
 		   }
 		   else 
 		   {
-			   System.out.println("Multiple Choice Question");
 			   stmt = c.createStatement();
-			   ResultSet res = stmt.executeQuery("SELECT id, QUESTION from multipleChoiceQuestion WHERE PLAYED = 0");
+			   String sql1 = "SELECT COUNT(*) FROM multipleChoiceQuestion";
+			   ResultSet res = stmt.executeQuery(sql1);
+			   
+			   while(res.next())
+			   {
+				   count = res.getInt(1);
+			   }
+			   
+			   System.out.println("Multiple Choice Question");
+			   res = stmt.executeQuery("SELECT id, QUESTION, a, b, c, d from multipleChoiceQuestion WHERE PLAYED = 0");
 			   
 			   mainID = res.getInt("id");
 			   //System.out.println(mainID);
 			   String question = res.getString("question");
-			   System.out.print(question);
+			   String a = res.getString("a");
+			   String b = res.getString("b"); 
+			   String ansC = res.getString("c"); 
+			   String d = res.getString("d"); 
+			   
+			   System.out.println(question);
+			   System.out.println("a. "+a+"\t b. "+b);
+			   System.out.println("c. "+ansC+"\t d. "+d);
+			   
+			   String sql = "UPDATE multipleChoiceQuestion SET PLAYED = 1 WHERE id = '"+mainID+"'";
+			   stmt.executeUpdate(sql);
 			   
 			   res.close();
 			   stmt.close();
@@ -140,15 +168,18 @@ public class Door {
 			   stmt = c.createStatement();  
 			   ResultSet res = stmt.executeQuery("SELECT ANSWER from multipleChoiceQuestion WHERE ID = '"+mainID+"'");
 			  
-			   int ans = res.getInt("answer");
-			   System.out.println(ans);
+			   String ans = res.getString("answer");
+			   //System.out.println(ans);
 			  
 			 //need to change these to letters for multiple choice questions answer
-			   if(ans == 1)
-				   this.answer = "t";
-			   else 
-				   this.answer = "f";
-			   
+			   if(ans.equalsIgnoreCase("a"))
+				   this.answer = "a";
+			   else if(ans.equalsIgnoreCase("b"))
+				   this.answer = "b";
+			   else if(ans.equalsIgnoreCase("c"))
+				   this.answer = "c";
+			   else if(ans.equalsIgnoreCase("d"))
+				   this.answer = "d";
 			   
 			   res.close();
 			   stmt.close(); 

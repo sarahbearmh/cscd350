@@ -14,11 +14,10 @@ public class TriviaMazeQuestion {
 
 	      stmt = c.createStatement();
 	      String sql = "CREATE TABLE  IF NOT EXISTS TrueFalseQuestion " +
-	                   " (ID INT AUTO_INCREMENT, " +
+	                   " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
 	                   " QUESTION       TEXT    	NOT NULL, " + 
 	                   " ANSWER         BOOLEAN     NOT NULL, " +
-	                   " PLAYED			BOOLEAN		NOT NULL, " +
-	                   " PRIMARY KEY(ID))"; 
+	                   " PLAYED			BOOLEAN		NOT NULL)"; 
 	      stmt.executeUpdate(sql);
 	      
 	      stmt = c.createStatement();
@@ -29,9 +28,16 @@ public class TriviaMazeQuestion {
 	                   " B         TEXT     NOT NULL, " +
 	                   " C         TEXT     NOT NULL, " +
 	                   " D         TEXT     NOT NULL, " +
+	                   " ANSWER         TEXT     NOT NULL, " +
 	                   " PLAYED			BOOLEAN		NOT NULL, " +
 	                   " PRIMARY KEY(ID))"; 
 	      stmt.executeUpdate(sql2);
+	      /*
+	      stmt = c.createStatement();
+	      String sql3 = "INSERT INTO multipleChoiceQuestion " +
+	    		  		"VALUES (1,'Track and field star Carl Lewis won how many gold medals at the 1984 Olympic games?', 'two', 'three', 'four', 'eight', 'c', 0)";
+	    		  		
+	      stmt.executeUpdate(sql3);*/
 	      
 	      stmt.close();
 	      c.close();
@@ -40,24 +46,27 @@ public class TriviaMazeQuestion {
 	      System.exit(0);
 	    }
 	    System.out.println("Table created successfully");
-	    
-	    closedDatabase(c);
+
 			
 	}//END MAIN
-	
-	//
-	//if database is closed we need to reset the "play" field back to false so the questions can be asked again
-	//
-	//right now if the connection is closed then reset "play" field
-	private static void closedDatabase(Connection c)
+
+	public void closedDatabase()
 	{
+		Connection c = null;
+	    Statement stmt = null;
 		try
 		{
-			if(c.isClosed())
-			{
-				
-				System.out.println("Connection Closed: Played field is reset to False");
-			}
+			Class.forName("org.sqlite.JDBC");
+		    c = DriverManager.getConnection("jdbc:sqlite:triviaQuestionDB.db");
+
+			stmt = c.createStatement();
+				    
+			String sql = "UPDATE TrueFalseQuestion SET PLAYED = 0 WHERE PLAYED = 1";
+			stmt.executeUpdate(sql);
+			
+			String sql1 = "UPDATE multipleChoiceQuestion SET PLAYED = 0 WHERE PLAYED = 1";
+			stmt.executeUpdate(sql1);
+			
 		}//end try
 		catch(Exception e)
 		{

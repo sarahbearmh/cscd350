@@ -12,6 +12,8 @@ public class Game
 	   int sizeOfMaze = 0;
 	   String name = "";
 	   String sizeString = "";
+	   TriviaMazeQuestion mazeQ = new TriviaMazeQuestion(); 
+	   mazeQ.closedDatabase();
 	   Scanner kb = new Scanner(System.in);
 	   System.out.println("Please Enter Your Name: ");
 	   name = kb.nextLine();
@@ -78,6 +80,7 @@ public class Game
                curMaze.printMaze();
 				   System.out.println("All locked up, you lose.");
 				   lose = true;
+				   mazeQ.closedDatabase();
 			   }
 			   
 		      if(curMaze.getRow() == sizeOfMaze -1 && curMaze.getCol() == sizeOfMaze - 1)
@@ -85,6 +88,7 @@ public class Game
 				  curMaze.printMaze();
 		    	  System.out.println("You Win");
 				   win = true;
+				   mazeQ.closedDatabase();
 			   }//end if
 		   }//end while
 	   }//end else

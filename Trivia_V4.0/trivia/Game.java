@@ -8,6 +8,7 @@ public class Game
    {
 
 	   boolean win = false;
+	   boolean lose = false;
 	   int sizeOfMaze = 0;
 	   String name = "";
 	   String sizeString = "";
@@ -52,10 +53,11 @@ public class Game
 		   curMaze.fillMaze();
 		   String move = "";
 	    	
-		   while((curMaze.getRow() < sizeOfMaze) && (curMaze.getCol() < sizeOfMaze) && !win && !move.equalsIgnoreCase("quit"))
+		   while((curMaze.getRow() < sizeOfMaze) && (curMaze.getCol() < sizeOfMaze) && !win && !move.equalsIgnoreCase("quit") && lose==false)
 		   {   
-		       curMaze.printMaze();
-		      
+            boolean loser = true;
+          //  System.out.println("\nTHE MAZE before MOVING.\n");
+		      curMaze.printMaze();
 			   System.out.println("Would you like to move right, left, down, or up?"); 
 			   move = kb.nextLine();
 			   
@@ -63,15 +65,28 @@ public class Game
 			   {
 				   String value = curMaze.move(move);
 				   System.out.println(value);
+               // System.out.println("\nTHE MAZE after MOVING.\n");
+              // curMaze.printMaze();
+               loser = curMaze.traverse(curMaze.getRow(), curMaze.getCol());
+
+				  
 			   }//end if
 			   if(move.equalsIgnoreCase("quit"))
 			   {
 				   System.out.println("Exiting");
 			   }//end if
 			   
+			   if(loser==false)
+			   {
+               curMaze.printMaze();
+				   System.out.println("All locked up, you lose.");
+				   lose = true;
+			   }
+			   
 		      if(curMaze.getRow() == sizeOfMaze -1 && curMaze.getCol() == sizeOfMaze - 1)
 			   {
-				   System.out.println("You Win");
+				  curMaze.printMaze();
+		    	  System.out.println("You Win");
 				   win = true;
 			   }//end if
 		   }//end while

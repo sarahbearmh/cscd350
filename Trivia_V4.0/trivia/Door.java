@@ -12,6 +12,7 @@ public class Door {
 	private boolean open; 
 	private int mainID;
 	private int questionType = 0;
+	private String tried;
    
    public Door()
    {
@@ -20,6 +21,8 @@ public class Door {
 	  this.locked = true;
 	  this.open = false;
       open = true;
+      this.tried = "no";
+     
    }//end door	
    
    public Door(String value)
@@ -28,7 +31,20 @@ public class Door {
 	   	   this.answer = "";
 	   	   this.locked = false;
 	   	   this.open = false;
+	   	 this.tried = "no";
    }//EVC
+  
+   public boolean getTried()
+   {
+	  if(this.tried.compareTo("no")==0)
+		  return false;
+	  return true;
+   }
+   public void setTried(String tried)
+   {
+	   this.tried = tried;
+   }
+   
 	
    public String getQuestion()
    {

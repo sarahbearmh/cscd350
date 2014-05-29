@@ -13,8 +13,84 @@ public class Maze
       this.maze = new  Room[size][size];
    }//end maze
    
+   private boolean valid (int row, int column)
+   {
+      boolean result = false;
+ 
+       //check if cell is in the bounds of the matrix
+      if (row >= 0 && row < this.size &&
+          column >= 0 && column < this.size)
+      {
+    	  result = true;
+      }
+
+         //  check if cell is not blocked and not previously tried
+      //   if ((door.getOpen()==true || door.getLocked()==false) && door.getTried()==false)
+      //      result = true;
+
+      return result;
+   }//end valid
+
+
+   
+   
+   public boolean traverse (int row, int column)
+   {
+      boolean done = false;
+      
+      if (valid (row, column) )
+      {
+         
+         if (row == this.size -1 && column == this.size-1)
+            done = true;  // the maze is solved
+         else
+         {
+        	if(this.maze[row][column].hasBdoor() && this.maze[row][column].getBottom().getLocked()==false && this.maze[row][column].getBottom().getTried()==false)
+        	{
+        		//System.out.println("down");
+        		this.maze[row][column].getBottom().setTried("yes");
+            done = traverse (row+1, column);     // down  
+            this.maze[row][column].getBottom().setTried("no"); 
+            
+        	}
+        	if (this.maze[row][column].hasRdoor() && !done && this.maze[row][column].getRight().getLocked()==false && this.maze[row][column].getRight().getTried()==false)
+            {
+            	//System.out.println("right");
+            	this.maze[row][column].getRight().setTried("yes");
+               done = traverse ( row, column+1);  // right
+               this.maze[row][column].getRight().setTried("no");                
+            }
+            
+            
+        	if (valid(row-1, column) && this.maze[row-1][column].hasBdoor() && !done && this.maze[row-1][column].getBottom().getLocked()==false && this.maze[row-1][column].getBottom().getTried()==false)
+            { 
+            //	System.out.println("up");
+            	 this.maze[row-1][column].getBottom().setTried("yes");
+               done = traverse (row-1, column);  // up
+               this.maze[row-1][column].getBottom().setTried("no");
+            }
+        	if (valid(row, column-1) && this.maze[row][column-1].hasRdoor() && !done && this.maze[row][column-1].getRight().getLocked()==false && this.maze[row][column-1].getRight().getTried()==false)
+            {
+            //	System.out.println("left");
+            	this.maze[row][column-1].getRight().setTried("yes");
+               done = traverse ( row, column-1);  // left
+               this.maze[row][column-1].getRight().setTried("no");
+            }
+         }
+         
+
+         //if (done)  // this location is part of the final path
+         //   grid[row][column] = PATH;
+      }
+      
+      return done;
+   }//end traverse
+   
+
+   
    public void printMaze()
    {
+  
       int x = 0, y;
       System.out.print("  ");
       for(y = 0; y < this.size; y++)

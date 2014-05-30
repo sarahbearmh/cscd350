@@ -77,7 +77,7 @@ public class Door  implements Serializable{
 			   
 			   System.out.println("True/False Question");
 			   stmt = c.createStatement();
-			   res = stmt.executeQuery("SELECT id, QUESTION from TrueFalseQuestion WHERE PLAYED = 0");
+			   res = stmt.executeQuery("SELECT id, Question FROM TrueFalseQuestion WHERE played = 0 ORDER BY RANDOM() LIMIT 1");
 			   
 			   mainID = res.getInt("id");
 			   //System.out.println("MainID: "+mainID);
@@ -122,7 +122,7 @@ public class Door  implements Serializable{
 			   }
 			   
 			   System.out.println("Multiple Choice Question");
-			   res = stmt.executeQuery("SELECT id, QUESTION, a, b, c, d from multipleChoiceQuestion WHERE PLAYED = 0");
+			   res = stmt.executeQuery("SELECT id, QUESTION, a, b, c, d from multipleChoiceQuestion WHERE PLAYED = 0 ORDER BY RANDOM() LIMIT 1");
 			   
 			   mainID = res.getInt("id");
 			   //System.out.println(mainID);

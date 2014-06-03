@@ -22,15 +22,14 @@ public class TriviaMazeQuestion {
 	      
 	      stmt = c.createStatement();
 	      String sql2 = "CREATE TABLE  IF NOT EXISTS multipleChoiceQuestion " +
-	                   " (ID INT AUTO_INCREMENT, " +
+	                   " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
 	                   " QUESTION       TEXT    	NOT NULL, " + 
 	                   " A         TEXT     NOT NULL, " +
 	                   " B         TEXT     NOT NULL, " +
 	                   " C         TEXT     NOT NULL, " +
 	                   " D         TEXT     NOT NULL, " +
 	                   " ANSWER         TEXT     NOT NULL, " +
-	                   " PLAYED			BOOLEAN		NOT NULL, " +
-	                   " PRIMARY KEY(ID))"; 
+	                   " PLAYED			BOOLEAN		NOT NULL)"; 
 	      stmt.executeUpdate(sql2);
 	      /*
 	      stmt = c.createStatement();

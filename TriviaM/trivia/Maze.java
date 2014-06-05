@@ -384,7 +384,7 @@ public class Maze
          return "You cannot move that way";
       }
       
-      return "Should not hit this";
+      return "Invalid input!";
       
    }//traverse
    

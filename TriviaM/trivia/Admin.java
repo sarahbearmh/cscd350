@@ -2,12 +2,9 @@ package trivia;
 
 import java.sql.*;
 
-public class Admin 
+public class Admin implements IAdmin
 {
-	public Admin()
-	{
-	}
-
+	
 	public void addTFQ(String question, String answer)
 	{
 		Connection c = null;
@@ -131,4 +128,5 @@ public class Admin
 	      System.exit(0);
 	    }//end catch
 	}//end printMC
+	
 }//end class

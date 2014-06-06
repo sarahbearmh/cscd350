@@ -89,6 +89,7 @@ public class Door  implements Serializable{
 			   }
 			   else 
 			   {
+				   questionType = 1;
 				   System.out.println("Multiple Choice Question");
 				   res = stmt.executeQuery("SELECT id, QUESTION, a, b, c, d from multipleChoiceQuestion WHERE PLAYED = 0 ORDER BY RANDOM() LIMIT 1");
 				   
@@ -147,6 +148,7 @@ public class Door  implements Serializable{
 			   }
 			   else
 			   {
+				   questionType = 0;
 				   System.out.println("True/False Question");
 				   stmt = c.createStatement();
 				   res = stmt.executeQuery("SELECT id, Question FROM TrueFalseQuestion WHERE played = 0 ORDER BY RANDOM() LIMIT 1");
@@ -229,6 +231,11 @@ public class Door  implements Serializable{
 	   }
 	   return this.answer;
    }//end getAnswer
+   
+   public int getType()
+   {
+	   return questionType;
+   }
    
    public boolean getLocked()
    {

@@ -54,78 +54,82 @@ public class Door  implements Serializable{
 	   
 	   try
 	   {
-		   int count = 0;//# of records in the table
 		   questionType = rand.nextInt(2); 
 		   System.out.println(questionType);
-		   // in database 0 = false, 1 = true
-		   //if randId == 0, then trigger a t/f question
 		   Class.forName("org.sqlite.JDBC");
 		   c = DriverManager.getConnection("jdbc:sqlite:triviaQuestionDB.db");
+		   int countTF = 0; 
 		   
 		   if(questionType == 0)
 		   {
 			   stmt = c.createStatement();
-			   String sql1 = "SELECT COUNT(*) FROM TrueFalseQuestion";
+			   String sql1 = "SELECT COUNT(*) FROM TrueFalseQuestion WHERE played = 0";
 			   ResultSet res = stmt.executeQuery(sql1);
 			   
 			   while(res.next())
 			   {
-				   count = res.getInt(1);
+				   countTF = res.getInt(1);
 			   }
-			   
-			   System.out.println(count);
-			   
-			   System.out.println("True/False Question");
-			   stmt = c.createStatement();
-			   res = stmt.executeQuery("SELECT id, Question FROM TrueFalseQuestion WHERE played = 0 ORDER BY RANDOM() LIMIT 1");
-			   
-			   mainID = res.getInt("id");
-			   //System.out.println("MainID: "+mainID);
-			   String question = res.getString("question");
-			   System.out.println(question);
 
-			   String sql = "UPDATE TrueFalseQuestion SET PLAYED = 1 WHERE id = '"+mainID+"'";
-			   stmt.executeUpdate(sql);
-			   
-			   //test test test
-			   /*
-			   sql = "SELECT * FROM TrueFalseQuestion"; 
-			   res = stmt.executeQuery(sql);
-			   
-			   while(res.next())
+			   if(countTF > 0)
 			   {
-				   int id = res.getInt("id");
-				   String ques = res.getString("question");
-				   int an = res.getInt("answer");
-				   int played = res.getInt("played");
+				   System.out.println("True/False Question");
+				   stmt = c.createStatement();
+				   res = stmt.executeQuery("SELECT id, Question FROM TrueFalseQuestion WHERE played = 0 ORDER BY RANDOM() LIMIT 1");
 				   
-				   System.out.println("ID: "+id);
-				   System.out.println("Question: "+ques);
-				   System.out.println("Answer: "+an);
-				   System.out.println("Played: "+played);
+				   mainID = res.getInt("id");
+				   String question = res.getString("question");
+				   System.out.println(question);
+				   
+				   String sql = "UPDATE TrueFalseQuestion SET PLAYED = 1 WHERE id = '"+mainID+"'";
+				   stmt.executeUpdate(sql);
+	
+				   res.close();
+				   stmt.close();
 			   }
-			   */
-			   res.close();
-			   stmt.close();
+			   else 
+			   {
+				   questionType = 1;
+				   System.out.println("Multiple Choice Question");
+				   res = stmt.executeQuery("SELECT id, QUESTION, a, b, c, d from multipleChoiceQuestion WHERE PLAYED = 0 ORDER BY RANDOM() LIMIT 1");
+				   
+				   mainID = res.getInt("id");
+				   String question = res.getString("question");
+				   String a = res.getString("a");
+				   String b = res.getString("b"); 
+				   String ansC = res.getString("c"); 
+				   String d = res.getString("d"); 
+				   
+				   System.out.println(question);
+				   System.out.println("a. "+a+"\t b. "+b);
+				   System.out.println("c. "+ansC+"\t d. "+d);
+				   
+				   String sql = "UPDATE multipleChoiceQuestion SET PLAYED = 1 WHERE id = '"+mainID+"'";
+				   stmt.executeUpdate(sql);
+				   
+				   res.close();
+				   stmt.close();
+			   }
 			   
-			   //update played to 1. since question has already been used. 
 		   }
 		   else 
 		   {
 			   stmt = c.createStatement();
-			   String sql1 = "SELECT COUNT(*) FROM multipleChoiceQuestion";
+			   String sql1 = "SELECT COUNT(*) FROM multipleChoiceQuestion WHERE Played = 0";
 			   ResultSet res = stmt.executeQuery(sql1);
+			   int countMC = 0;
 			   
 			   while(res.next())
 			   {
-				   count = res.getInt(1);
+				   countMC = res.getInt(1);
 			   }
 			   
+			   if(countMC > 0)
+			   {
 			   System.out.println("Multiple Choice Question");
 			   res = stmt.executeQuery("SELECT id, QUESTION, a, b, c, d from multipleChoiceQuestion WHERE PLAYED = 0 ORDER BY RANDOM() LIMIT 1");
 			   
 			   mainID = res.getInt("id");
-			   //System.out.println(mainID);
 			   String question = res.getString("question");
 			   String a = res.getString("a");
 			   String b = res.getString("b"); 
@@ -141,12 +145,30 @@ public class Door  implements Serializable{
 			   
 			   res.close();
 			   stmt.close();
+			   }
+			   else
+			   {
+				   questionType = 0;
+				   System.out.println("True/False Question");
+				   stmt = c.createStatement();
+				   res = stmt.executeQuery("SELECT id, Question FROM TrueFalseQuestion WHERE played = 0 ORDER BY RANDOM() LIMIT 1");
+				   
+				   mainID = res.getInt("id");
+				   String question = res.getString("question");
+				   System.out.println(question);
+				   
+				   String sql = "UPDATE TrueFalseQuestion SET PLAYED = 1 WHERE id = '"+mainID+"'";
+				   stmt.executeUpdate(sql);
+	
+				   res.close();
+				   stmt.close();
+			   }
 		   }
 		   
 	   }
 	   catch(Exception e)
 	   {
-		   
+		   System.out.println("error: " + e);
 	   }
 	   return this.question;
    }//end getQuestion
@@ -205,10 +227,15 @@ public class Door  implements Serializable{
 	   }
 	   catch(Exception e)
 	   {
-		   
+		   System.out.println("error: " + e);
 	   }
 	   return this.answer;
    }//end getAnswer
+   
+   public int getType()
+   {
+	   return questionType;
+   }
    
    public boolean getLocked()
    {

@@ -225,11 +225,23 @@ public class Maze
       this.win = win;
    }//end setWin
 
-   
+   public String checkAnswer(String answer)
+   {
+	   if(answer.equalsIgnoreCase("t") || answer.equalsIgnoreCase("true") || answer.equalsIgnoreCase("f") || answer.equalsIgnoreCase("false"))
+	   {
+		   return answer;
+	   }
+	   if(answer.equalsIgnoreCase("a") || answer.equalsIgnoreCase("b") || answer.equalsIgnoreCase("c") || answer.equalsIgnoreCase("d"))
+		   return answer;
+	   else
+		   return answer;
+	     
+   }//end check
    public String move(String dir)
    {
       Scanner kb = new Scanner(System.in);
       String answer = "";
+      int questionType = 0;
       
       if(dir.equalsIgnoreCase("right"))
       {
@@ -240,7 +252,39 @@ public class Maze
             if(door.getLocked()==false && door.getOpen()==false)
             {
                System.out.println(this.maze[this.row][this.col].getRight().getQuestion());
+               //need to get question type
+               questionType = door.getType();
                answer = kb.nextLine();
+               answer = checkAnswer(answer);
+               
+               if(questionType == 0)
+               {
+	               while(!(answer.equalsIgnoreCase("t") || answer.equalsIgnoreCase("true") || answer.equalsIgnoreCase("f") || answer.equalsIgnoreCase("false")))
+	               {
+	            	   System.out.println("Please enter a 't', 'true', 'f' or 'false'");
+	            	   answer = kb.nextLine();
+	                   answer = checkAnswer(answer);
+	               }
+	               
+	               if(answer.equalsIgnoreCase("true"))
+	               {
+	            	   answer = "t";
+	               }
+	               if(answer.equalsIgnoreCase("false"))
+	               {
+	            	   answer = "f";
+	               }
+               }
+               else
+               {
+            	   while(!(answer.equalsIgnoreCase("a") || answer.equalsIgnoreCase("b") || answer.equalsIgnoreCase("c") || answer.equalsIgnoreCase("d")))
+	               {
+	            	   System.out.println("Please enter 'a', 'b', 'c' or 'd' as your answer");
+	            	   answer = kb.nextLine();
+	                   answer = checkAnswer(answer);
+	               }
+               }
+               //validate answer
                if(answer.equalsIgnoreCase(this.maze[this.row][this.col].getRight().getAnswer()))
                {
                   this.maze[this.row][this.col].getRight().setOpen(true);
@@ -279,7 +323,37 @@ public class Maze
             if(door.getLocked()==false && door.getOpen()==false)
             {
                System.out.println(this.maze[this.row][this.col].getBottom().getQuestion());
+               questionType = door.getType();
                answer = kb.nextLine();
+               answer = checkAnswer(answer);
+               
+               if(questionType == 0)
+               {
+	               while(!(answer.equalsIgnoreCase("t") || answer.equalsIgnoreCase("true") || answer.equalsIgnoreCase("f") || answer.equalsIgnoreCase("false")))
+	               {
+	            	   System.out.println("Please enter a 't', 'true', 'f' or 'false'");
+	            	   answer = kb.nextLine();
+	                   answer = checkAnswer(answer);
+	               }
+	               
+	               if(answer.equalsIgnoreCase("true"))
+	               {
+	            	   answer = "t";
+	               }
+	               if(answer.equalsIgnoreCase("false"))
+	               {
+	            	   answer = "f";
+	               }
+               }
+               else
+               {
+            	   while(!(answer.equalsIgnoreCase("a") || answer.equalsIgnoreCase("b") || answer.equalsIgnoreCase("c") || answer.equalsIgnoreCase("d")))
+	               {
+	            	   System.out.println("Please enter 'a', 'b', 'c' or 'd' as your answer");
+	            	   answer = kb.nextLine();
+	                   answer = checkAnswer(answer);
+	               }
+               }
                if(answer.equalsIgnoreCase(this.maze[this.row][this.col].getBottom().getAnswer()))
                {
                   this.maze[this.row][this.col].getBottom().setOpen(true);
@@ -318,7 +392,39 @@ public class Maze
             {
             
                System.out.println(this.maze[this.row-1][this.col].getBottom().getQuestion());
+               //need to get questionType
+               questionType = door.getType();
                answer = kb.nextLine();
+               answer = checkAnswer(answer);
+               
+               if(questionType == 0)
+               {
+	               while(!(answer.equalsIgnoreCase("t") || answer.equalsIgnoreCase("true") || answer.equalsIgnoreCase("f") || answer.equalsIgnoreCase("false")))
+	               {
+	            	   System.out.println("Please enter a 't', 'true', 'f' or 'false'");
+	            	   answer = kb.nextLine();
+	                   answer = checkAnswer(answer);
+	               }
+	               
+	               if(answer.equalsIgnoreCase("true"))
+	               {
+	            	   answer = "t";
+	               }
+	               if(answer.equalsIgnoreCase("false"))
+	               {
+	            	   answer = "f";
+	               }
+               }
+               else
+               {
+            	   while(!(answer.equalsIgnoreCase("a") || answer.equalsIgnoreCase("b") || answer.equalsIgnoreCase("c") || answer.equalsIgnoreCase("d")))
+	               {
+	            	   System.out.println("Please enter 'a', 'b', 'c' or 'd' as your answer");
+	            	   answer = kb.nextLine();
+	                   answer = checkAnswer(answer);
+	               }
+               }
+               //validate answer
                if(answer.equalsIgnoreCase(this.maze[this.row-1][this.col].getBottom().getAnswer()))
                {
                   this.maze[this.row-1][this.col].getBottom().setOpen(true);
@@ -355,7 +461,37 @@ public class Maze
             {
             
                System.out.println(this.maze[this.row][this.col-1].getRight().getQuestion());
+               questionType = door.getType();
                answer = kb.nextLine();
+               answer = checkAnswer(answer);
+               
+               if(questionType == 0)
+               {
+	               while(!(answer.equalsIgnoreCase("t") || answer.equalsIgnoreCase("true") || answer.equalsIgnoreCase("f") || answer.equalsIgnoreCase("false")))
+	               {
+	            	   System.out.println("Please enter a 't', 'true', 'f' or 'false'");
+	            	   answer = kb.nextLine();
+	                   answer = checkAnswer(answer);
+	               }
+	               
+	               if(answer.equalsIgnoreCase("true"))
+	               {
+	            	   answer = "t";
+	               }
+	               if(answer.equalsIgnoreCase("false"))
+	               {
+	            	   answer = "f";
+	               }
+               }
+               else
+               {
+            	   while(!(answer.equalsIgnoreCase("a") || answer.equalsIgnoreCase("b") || answer.equalsIgnoreCase("c") || answer.equalsIgnoreCase("d")))
+	               {
+	            	   System.out.println("Please enter 'a', 'b', 'c' or 'd' as your answer");
+	            	   answer = kb.nextLine();
+	                   answer = checkAnswer(answer);
+	               }
+               }
                if(answer.equalsIgnoreCase(this.maze[this.row][this.col-1].getRight().getAnswer()))
                {
                   this.maze[this.row][this.col-1].getRight().setOpen(true);
@@ -384,7 +520,7 @@ public class Maze
          return "You cannot move that way";
       }
       
-      return "Should not hit this";
+      return "Invalid input!";
       
    }//traverse
    

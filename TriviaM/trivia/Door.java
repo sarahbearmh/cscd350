@@ -131,7 +131,7 @@ public class Door  implements Serializable{
 
 			   if(countTF > 0)
 			   {
-				   System.out.println("QUESTION TYPE IS: "+questionType);
+				  
 				   this.questionType = 0;
 				   System.out.println("True/False Question");
 				   stmt = c.createStatement();
@@ -148,7 +148,7 @@ public class Door  implements Serializable{
 			   else 
 			   {
 				   this.questionType = 1;
-				   System.out.println("ran out of TF QUESTION TYPE IS: "+questionType);
+				 
 				   System.out.println("Multiple Choice Question");
 				   res = stmt.executeQuery("SELECT id, QUESTION, a, b, c, d from multipleChoiceQuestion WHERE PLAYED = 0 ORDER BY RANDOM() LIMIT 1");
 				   
@@ -159,7 +159,7 @@ public class Door  implements Serializable{
 				   String ansC = res.getString("c"); 
 				   String d = res.getString("d"); 
 				   
-				   this.question = "a. "+a+"\t b. "+b+" \nc. "+ansC+"  d. "+d;
+				   this.question = question+"\na. "+a+"\t b. "+b+" \nc. "+ansC+"  d. "+d;
 						   
 				   res.close();
 				   stmt.close();
@@ -196,7 +196,7 @@ public class Door  implements Serializable{
 			   
 		
 			   
-			  this.question = "a. "+a+"\t b. "+b+" \nc. "+ansC+"  d. "+d;
+			  this.question = question+"\na. "+a+"\t b. "+b+" \nc. "+ansC+"  d. "+d;
 			   
 			   res.close();
 			   stmt.close();
@@ -204,7 +204,7 @@ public class Door  implements Serializable{
 			   else
 			   {
 				   this.questionType = 0;
-				   System.out.println("ran outof MC QUESTION TYPE IS: "+questionType);
+				  
 				   System.out.println("True/False Question");
 				   stmt = c.createStatement();
 				   res = stmt.executeQuery("SELECT id, Question FROM TrueFalseQuestion WHERE played = 0 ORDER BY RANDOM() LIMIT 1");
@@ -233,9 +233,7 @@ public class Door  implements Serializable{
    {
       Connection c = null;
       Statement stmt = null;
-      System.out.println("in getAnswer");
-     System.out.println("quesionTYPE IN ANSWER is: "+this.questionType);
-   
+    
       try
       {
          if(this.questionType == 0)
@@ -244,10 +242,9 @@ public class Door  implements Serializable{
             c = DriverManager.getConnection("jdbc:sqlite:triviaQuestionDB.db");
             stmt = c.createStatement();  
             ResultSet res = stmt.executeQuery("SELECT ANSWER from TrueFalseQuestion WHERE ID = '"+mainID+"'");
-           System.out.println("after selecting answer");
+          
             int ans = res.getInt("answer");
-            System.out.println("T/F answer id is: "+this.mainID);
-            System.out.println("answer is: "+ans);
+            
             
             if(ans == 1)
                this.answer = "t";
@@ -264,10 +261,9 @@ public class Door  implements Serializable{
             c = DriverManager.getConnection("jdbc:sqlite:triviaQuestionDB.db");
             stmt = c.createStatement();  
             ResultSet res = stmt.executeQuery("SELECT ANSWER from multipleChoiceQuestion WHERE ID = '"+mainID+"'");
-            System.out.println("after selecting answer in MC");
+           
             String ans = res.getString("answer");
-            System.out.println("MC answer id is: "+this.mainID);
-            System.out.println("answer is: "+ans);
+          
            
           //need to change these to letters for multiple choice questions answer
             if(ans.equalsIgnoreCase("a"))

@@ -239,7 +239,7 @@ public class Maze
    {
       String myAnswer=answer;
       Scanner kb  = new Scanner(System.in);
-      while(!(myAnswer.equalsIgnoreCase("t") || myAnswer.equalsIgnoreCase("true") || myAnswer.equalsIgnoreCase("f") || myAnswer.equalsIgnoreCase("false")))
+      while(!(myAnswer.equalsIgnoreCase("t") || myAnswer.equalsIgnoreCase("true") || myAnswer.equalsIgnoreCase("f") || myAnswer.equalsIgnoreCase("false")|| myAnswer.equalsIgnoreCase("skip")))
       {
          System.out.println("Please enter a 't', 'true', 'f' or 'false'");
          myAnswer = kb.nextLine();
@@ -254,6 +254,7 @@ public class Maze
       {
          myAnswer = "f";
       }
+      
      //  kb.close();
       return myAnswer;
    }//end checkTrueFalse
@@ -263,7 +264,7 @@ public class Maze
    {
       String myAnswer = answer;
       Scanner kb = new Scanner(System.in);
-      while(!(myAnswer.equalsIgnoreCase("a") || myAnswer.equalsIgnoreCase("b") || myAnswer.equalsIgnoreCase("c") || myAnswer.equalsIgnoreCase("d")))
+      while(!(myAnswer.equalsIgnoreCase("a") || myAnswer.equalsIgnoreCase("b") || myAnswer.equalsIgnoreCase("c") || myAnswer.equalsIgnoreCase("d")|| myAnswer.equalsIgnoreCase("skip")))
       {
          System.out.println("Please enter 'a', 'b', 'c' or 'd' as your answer");
          myAnswer = kb.nextLine();
@@ -425,32 +426,30 @@ public class Maze
             {
                this.maze[this.row][this.col].getRight().getQuestion();
                System.out.println(door.getThisQuestion());
-               //need to get question type
+              System.out.println("You may enter skip to skip this question.");
                questionType = door.getType();
                answer = kb.nextLine();
-               copyAnswer = answer;
-               
-               if(copyAnswer.equalsIgnoreCase("skip"))
-               {
-            	   if(this.skip>0)
-            	   {
-            	   this.skip--;
-            	   return ("Alright, you have "+this.skip+" skip(s) left.");
-            	   }
-            	   else
-                   {
-                	   System.out.println("You can't skip anymore.");
-                	   System.out.println(door.getThisQuestion());
-                       answer = kb.nextLine();
-                       copyAnswer = answer;
-                   }
-               }
+               copyAnswer = answer;     
+              
                
                
                if(questionType == 0) //if it is a true/false question
                {
             	   door.setTFquestion();//set question as being used
                   answer = checkTrueFalse(copyAnswer); //check if answer is valid like t or f
+                  if(answer.equalsIgnoreCase("skip")&&this.skip>0)
+                  {
+                	  this.skip--;
+                	  return ("Alright, you have "+this.skip+" skip(s) left.");
+                  }
+                  while(answer.equalsIgnoreCase("skip")&&this.skip<1)
+                  {
+                	  System.out.println("You can't skip anymore.");
+                	  System.out.println(door.getThisQuestion());
+                      answer = kb.nextLine();
+                      copyAnswer = answer;
+                      answer = checkTrueFalse(copyAnswer);
+                  }
                }
                
                
@@ -458,7 +457,21 @@ public class Maze
                {
             	   door.setMCquestion();
                   answer = checkMultiple(copyAnswer);//check if answer is valid like a b c d
+                  if(answer.equalsIgnoreCase("skip")&&this.skip>0)
+                  {
+                	  this.skip--;
+                	  return ("Alright, you have "+this.skip+" skip(s) left.");
+                  }
+                  while(answer.equalsIgnoreCase("skip")&&this.skip<1)
+                  {
+                	  System.out.println("You can't skip anymore.");
+                	  System.out.println(door.getThisQuestion());
+                      answer = kb.nextLine();
+                      copyAnswer = answer;
+                      answer = checkMultiple(copyAnswer);
+                  }
                }
+               
              
                return getCheckAnswer("right",answer); //check if the answer is correct or not
                
@@ -482,30 +495,30 @@ public class Maze
             {
                this.maze[this.row][this.col].getBottom().getQuestion();
               System.out.println(door.getThisQuestion());
+              System.out.println("You may enter skip to skip this question.");
                questionType = door.getType();
                answer = kb.nextLine();
                copyAnswer = answer;
                
-               if(copyAnswer.equalsIgnoreCase("skip"))
-               {
-            	   if(this.skip>0)
-            	   {
-            	   this.skip--;
-            	   return ("Alright, you have "+this.skip+" skip(s) left.");
-            	   }
-            	   else
-                   {
-                	   System.out.println("You can't skip anymore.");
-                	   System.out.println(door.getThisQuestion());
-                       answer = kb.nextLine();
-                       copyAnswer = answer;
-                   }
-               }
+
                
                if(questionType == 0) //if it is a true/false question
                {
-            	   door.setTFquestion();
+            	   door.setTFquestion();//set question as being used
                   answer = checkTrueFalse(copyAnswer); //check if answer is valid like t or f
+                  if(answer.equalsIgnoreCase("skip")&&this.skip>0)
+                  {
+                	  this.skip--;
+                	  return ("Alright, you have "+this.skip+" skip(s) left.");
+                  }
+                  while(answer.equalsIgnoreCase("skip")&&this.skip<1)
+                  {
+                	  System.out.println("You can't skip anymore.");
+                	  System.out.println(door.getThisQuestion());
+                      answer = kb.nextLine();
+                      copyAnswer = answer;
+                      answer = checkTrueFalse(copyAnswer);
+                  }
                }
                
                
@@ -513,7 +526,22 @@ public class Maze
                {
             	   door.setMCquestion();
                   answer = checkMultiple(copyAnswer);//check if answer is valid like a b c d
+                  if(answer.equalsIgnoreCase("skip")&&this.skip>0)
+                  {
+                	  this.skip--;
+                	  return ("Alright, you have "+this.skip+" skip(s) left.");
+                  }
+                  while(answer.equalsIgnoreCase("skip")&&this.skip<1)
+                  {
+                	  System.out.println("You can't skip anymore.");
+                	  System.out.println(door.getThisQuestion());
+                      answer = kb.nextLine();
+                      copyAnswer = answer;
+                      answer = checkMultiple(copyAnswer);
+                  }
                }
+               
+             
                return getCheckAnswer("down",answer); //check if the answer is correct or not
             }//end locked =false and open = false
             
@@ -536,32 +564,31 @@ public class Maze
             
                this.maze[this.row-1][this.col].getBottom().getQuestion();
                System.out.println(door.getThisQuestion());
+               System.out.println("You may enter skip to skip this question.");
                //need to get questionType
                questionType = door.getType();
                answer = kb.nextLine();
                copyAnswer = answer;
                
-               if(copyAnswer.equalsIgnoreCase("skip"))
-               {
-            	   if(this.skip>0)
-            	   {
-            	   this.skip--;
-            	   return ("Alright, you have "+this.skip+" skip(s) left.");
-            	   }
-            	   else
-                   {
-                	   System.out.println("You can't skip anymore.");
-                	   System.out.println(door.getThisQuestion());
-                       answer = kb.nextLine();
-                       copyAnswer = answer;
-                   }
-               }
-               
+
                
                if(questionType == 0) //if it is a true/false question
                {
-            	   door.setTFquestion();
+            	   door.setTFquestion();//set question as being used
                   answer = checkTrueFalse(copyAnswer); //check if answer is valid like t or f
+                  if(answer.equalsIgnoreCase("skip")&&this.skip>0)
+                  {
+                	  this.skip--;
+                	  return ("Alright, you have "+this.skip+" skip(s) left.");
+                  }
+                  while(answer.equalsIgnoreCase("skip")&&this.skip<1)
+                  {
+                	  System.out.println("You can't skip anymore.");
+                	  System.out.println(door.getThisQuestion());
+                      answer = kb.nextLine();
+                      copyAnswer = answer;
+                      answer = checkTrueFalse(copyAnswer);
+                  }
                }
                
                
@@ -569,7 +596,22 @@ public class Maze
                {
             	   door.setMCquestion();
                   answer = checkMultiple(copyAnswer);//check if answer is valid like a b c d
+                  if(answer.equalsIgnoreCase("skip")&&this.skip>0)
+                  {
+                	  this.skip--;
+                	  return ("Alright, you have "+this.skip+" skip(s) left.");
+                  }
+                  while(answer.equalsIgnoreCase("skip")&&this.skip<1)
+                  {
+                	  System.out.println("You can't skip anymore.");
+                	  System.out.println(door.getThisQuestion());
+                      answer = kb.nextLine();
+                      copyAnswer = answer;
+                      answer = checkMultiple(copyAnswer);
+                  }
                }
+               
+             
              
                return getCheckAnswer("up",answer); //check if the answer is correct or not
             }//end lock is false and open is false
@@ -594,31 +636,30 @@ public class Maze
             
               this.maze[this.row][this.col-1].getRight().getQuestion();
                System.out.println(door.getThisQuestion());
+               System.out.println("You may enter skip to skip this question.");
                questionType = door.getType();
                answer = kb.nextLine();
                copyAnswer = answer;
                
-               if(copyAnswer.equalsIgnoreCase("skip"))
-               {
-            	   if(this.skip>0)
-            	   {
-            	   this.skip--;
-            	   return ("Alright, you have "+this.skip+" skip(s) left.");
-            	   }
-            	   else
-                   {
-                	   System.out.println("You can't skip anymore.");
-                	   System.out.println(door.getThisQuestion());
-                       answer = kb.nextLine();
-                       copyAnswer = answer;
-                   }
-               }
-               
+
                
                if(questionType == 0) //if it is a true/false question
                {
-            	   door.setTFquestion();
+            	   door.setTFquestion();//set question as being used
                   answer = checkTrueFalse(copyAnswer); //check if answer is valid like t or f
+                  if(answer.equalsIgnoreCase("skip")&&this.skip>0)
+                  {
+                	  this.skip--;
+                	  return ("Alright, you have "+this.skip+" skip(s) left.");
+                  }
+                  while(answer.equalsIgnoreCase("skip")&&this.skip<1)
+                  {
+                	  System.out.println("You can't skip anymore.");
+                	  System.out.println(door.getThisQuestion());
+                      answer = kb.nextLine();
+                      copyAnswer = answer;
+                      answer = checkTrueFalse(copyAnswer);
+                  }
                }
                
                
@@ -626,7 +667,22 @@ public class Maze
                {
             	   door.setMCquestion();
                   answer = checkMultiple(copyAnswer);//check if answer is valid like a b c d
+                  if(answer.equalsIgnoreCase("skip")&&this.skip>0)
+                  {
+                	  this.skip--;
+                	  return ("Alright, you have "+this.skip+" skip(s) left.");
+                  }
+                  while(answer.equalsIgnoreCase("skip")&&this.skip<1)
+                  {
+                	  System.out.println("You can't skip anymore.");
+                	  System.out.println(door.getThisQuestion());
+                      answer = kb.nextLine();
+                      copyAnswer = answer;
+                      answer = checkMultiple(copyAnswer);
+                  }
                }
+               
+             
              
                return getCheckAnswer("left",answer); //check if the answer is correct or not
             }//end lock is false and open is false

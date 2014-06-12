@@ -10,3 +10,23 @@ Turkey Lurkey Time is a song from what musical?, Promises Promises, Newsies, Wes
 If someone says they are going to defenestrate you then they are doing what?, Throwing you out a window, Aiding in your defense, Breaking down your defenses, Hitting you, a
 "A word to the wise ain't necessary - it's the _______ ones that need the advice." - Bill Cosby, unwise, stupid, special, lonely, b
 "Get your ______ first, then you can distort them as you please." - Mark Twain, thoughts together, facts, promises, lies, b
+In the relational modes, cardinality is termed as:, Number of tuples, Number of attributes, Number of tables, Number of constraints, a
+Relational calculus is a, Procedural language, Non- Procedural language, Data definition language, High level language, b
+The view of total database content is, Conceptual view, Internal view, External view, Physical View, a
+Cartesian product in relational algebra is, a Unary operator, a Binary operator, a Ternary operator, not defined, b
+DML is provided for, Description of logical structure of database, Addition of new structures in the database system, Manipulation & processing of database, Definition of physical structure of database system, c
+‘AS’ clause is used in SQL for, Selection operation, Rename operation, Join operation, Projection operation, b
+ODBC stands for, Object Database Connectivity, Oral Database Connectivity, Oracle Database Connectivity, Open Database Connectivity, d
+Architecture of the database can be viewed as, two levels, four levels, three levels, one level, c
+In a relational model, relations are termed as, Tuples, Attributes, Tables, Rows, c
+The database schema is written in, HLL, DML, DDL, DCL, c
+In the architecture of a database system external level is the, physical level, logical level, conceptual level, view level, d
+An entity set that does not have sufficient attributes to form a primary key is a, strong entity set, weak entity set, simple entity set, primary entity set, b
+In a Hierarchical model records are organized as, Graph, List, Links, Tree, d
+In an E-R diagram attributes are represented by, rectangle, square, ellipse, triangle, c
+In case of entity integrity, the primary key may be, not Null, Null, both Null & not Null, any value, a
+The language which has recently become the defacto standard for interfacing application programs with relational database system is, Oracle, SQL, DBase, 4GL, b 
+The language used in application programs to request data from the DBMS is referred to as the, DML, DDL, VDL, SDL, a
+A logical schema, is the entire database, is a standard way of organizing information into accessible parts, describes how data is actually stored on disk, both (A) and (C), a
+Related fields in a database are grouped to form a, data file, data record, menu, bank, b
+The database environment has all of the following components except:, users, separate files, database, database administrator, a

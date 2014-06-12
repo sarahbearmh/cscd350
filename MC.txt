@@ -32,7 +32,7 @@ Related fields in a database are grouped to form a, data file, data record, menu
 The database environment has all of the following components except:, users, separate files, database, database administrator, a
 Track and field star Carl Lewis won how many gold medals at the 1984 Olympic games, 2, 3, 4, 6, c
 Who did Stone Cold Steve Austin wrestle at the 1998 edition of "Over the Edge”, Cactus Jack, Mankind, Dude Love, Mick Foley, c
-“Do you smell what the ___ is cooking” fill in the blank, Rock, Cook, Chef, Freak
+“Do you smell what the ___ is cooking” fill in the blank, Rock, Cook, Chef, Freak, a
 Which NBA player scored 8 points in the final 7 seconds of a game to lead his team to victory, Baron Davis, Kobe Bryant, Michael Jordan, Reggie Miller, d
 How many pieces are on the board at the start of a game of chess, 28, 36, 32, 40, c
 What is the atomic number for oxygen, 2, 6, 8, 14, c

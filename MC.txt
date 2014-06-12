@@ -18,14 +18,14 @@ DML is provided for, Description of logical structure of database, Addition of n
 ‘AS’ clause is used in SQL for, Selection operation, Rename operation, Join operation, Projection operation, b
 ODBC stands for, Object Database Connectivity, Oral Database Connectivity, Oracle Database Connectivity, Open Database Connectivity, d
 Architecture of the database can be viewed as, two levels, four levels, three levels, one level, c
-In a relational model, relations are termed as, Tuples, Attributes, Tables, Rows, c
+In a relational model, relations are termed as, Tuples, Attributes, Tables, Rows, c
 The database schema is written in, HLL, DML, DDL, DCL, c
 In the architecture of a database system external level is the, physical level, logical level, conceptual level, view level, d
 An entity set that does not have sufficient attributes to form a primary key is a, strong entity set, weak entity set, simple entity set, primary entity set, b
 In a Hierarchical model records are organized as, Graph, List, Links, Tree, d
 In an E-R diagram attributes are represented by, rectangle, square, ellipse, triangle, c
 In case of entity integrity, the primary key may be, not Null, Null, both Null & not Null, any value, a
-The language which has recently become the defacto standard for interfacing application programs with relational database system is, Oracle, SQL, DBase, 4GL, b 
+The language which has recently become the defacto standard for interfacing application programs with relational database system is, Oracle, SQL, DBase, 4GL, b
 The language used in application programs to request data from the DBMS is referred to as the, DML, DDL, VDL, SDL, a
 A logical schema, is the entire database, is a standard way of organizing information into accessible parts, describes how data is actually stored on disk, both (A) and (C), a
 Related fields in a database are grouped to form a, data file, data record, menu, bank, b

@@ -58,4 +58,10 @@ Spurs and Heats were in the 2013 NBA playoffs, true
 Oklahoma Thunders were originally the Seattle Supersonics, true
 Miami Heats of the NBA have won 4 NBA championships, false
 Seattle Seahawks won their first Superbowl in the 2014 season, true
+Pointe shoes are worn in Ballet., true
+The first corvette was made in 1953., true
+Apple Pie is a popular non-alcoholic drink., false
+You must have a special license to drive a motorcycle in WA, true
+K-means is a distance measure in data mining., false
+Moscato is a deep red win., false
 

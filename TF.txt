@@ -16,3 +16,23 @@ The first product to have a bar code was Wrigleys gum., true
 Porcupines float in water., true
 You lose the most body heat through your head., false
 A mother bird will abandon her babies if you touch them., false
+An E-R diagram entity set is represent by a rectangle, true
+A report generator is used to data entry, false
+A relational database developer refers to a record as a tuple, true
+A subschema expresses the logical view, false
+Count function in SQL returns the number of values, true
+The method of access which uses key transformation is known as sequential, false
+Key to represent relationship between tables is called foreign key, true
+_____produces the relation that has attributes of R1 and R2 is intersection, false
+The relationship that is maintained between two entities is binary, true
+The Earth is round, true
+A 5 x 6 matrix has 6 rows, true,
+The first set of crayola crayons had 8 colors, true
+Krypton's atomic number is 26, false
+The strongest muscle in proportion to its size in the human body is the tongue, true
+Banging your head against a wall uses 160 calories an hour, false
+The average person falls asleep in 7 minutes, true,
+Butterflies taste with their tongue, false
+Elephants can't jump, true
+Starfish has a bigger brain than worms, false
+Snails can sleep for 3 years without eating, true

@@ -65,8 +65,6 @@ public class Door  implements Serializable{
 	      
 	      try
 	      {
-	        
-	         System.out.println(questionType);
 	         Class.forName("org.sqlite.JDBC");
 	         c = DriverManager.getConnection("jdbc:sqlite:triviaQuestionDB.db");
 	         stmt = c.createStatement();
@@ -182,8 +180,7 @@ public class Door  implements Serializable{
 			   if(countMC > 0)
 			   {
 				   
-				   System.out.println("QUESTION TYPE IS: "+questionType);
-				   this.questionType = 1;
+				this.questionType = 1;
 			   System.out.println("Multiple Choice Question");
 			   res = stmt.executeQuery("SELECT id, QUESTION, a, b, c, d from multipleChoiceQuestion WHERE PLAYED = 0 ORDER BY RANDOM() LIMIT 1");
 			   

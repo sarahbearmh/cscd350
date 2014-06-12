@@ -1,5 +1,6 @@
 package trivia;
 import java.sql.*;
+import java.io.*;
 
 public class TriviaMazeQuestion {
 
@@ -45,7 +46,8 @@ public class TriviaMazeQuestion {
 	      System.exit(0);
 	    }
 	    System.out.println("Table created successfully");
-
+	    populateTF();
+	    populateMC();
 			
 	}//END MAIN
 
@@ -73,6 +75,91 @@ public class TriviaMazeQuestion {
 			        +e.getMessage());
 		}
 	}
+	
+	public static void populateTF()
+	{
+		Connection c = null;
+	    Statement stmt = null;
+		try
+		{
+			String vals;
+            BufferedReader fp = new BufferedReader(new FileReader("TF.txt"));
+            while((vals = fp.readLine()) != null)
+            {
+            	String[] line = vals.split(",");
+            	if(line.length < 2)
+            		System.out.println("error" + line[0]);
+            	int answerVal;
+        	    if(line[1].equalsIgnoreCase("true"))
+        	    {
+        	    	answerVal = 1;
+        	    }//end if
+        	    else
+        	    {
+        	    	answerVal = 0;
+        	    }//end else
+            	try
+        	    {
+        	    	Class.forName("org.sqlite.JDBC");
+        	    	c = DriverManager.getConnection("jdbc:sqlite:triviaQuestionDB.db");
+        	   
+        	    	stmt = c.createStatement();
+        	    	String sql1 = "INSERT INTO TrueFalseQuestion(QUESTION, ANSWER, PLAYED) "
+        	    			+ " VALUES(\"" + line[0] + "\", " + answerVal + ", 0)";
+        	    	stmt.executeUpdate(sql1);
+        	    
+        	   } //end try
+        	    catch ( Exception e ) 
+        	    {
+        	      System.err.println( e.getClass().getName() + ":tf: " + e.getMessage() );
+        	      System.exit(0);
+        	    }//end catch
+            } //end while
+            fp.close();
+		}//end try
+	      catch (Exception e)
+	      {
+	         System.out.println(e);
+	      }
+	}//end TF populate
+	public static void populateMC()
+	{
+		Connection c = null;
+	    Statement stmt = null;
+		try
+		{
+
+			String vals;
+            BufferedReader fp = new BufferedReader(new FileReader("MC.txt"));
+            while((vals = fp.readLine()) != null)
+            {
+            	String[] line = vals.split(",");
+            	if(line.length < 5)
+            		System.out.println("error" + line[0]);
+            	try
+        	    {
+        	    	Class.forName("org.sqlite.JDBC");
+        	    	c = DriverManager.getConnection("jdbc:sqlite:triviaQuestionDB.db");
+        	   
+        	    	stmt = c.createStatement();
+        	    	String sql1 = "INSERT INTO multipleChoiceQuestion(Question, A, B, C, D, Answer, Played) " +
+            		  		"VALUES ('" + line[0] + "', '" + line[1] + "', '" + line[2] +"', '" + line[3] + "', '" + line[4] + "', '" + line[5] + "', 0)";
+        	    	stmt.executeUpdate(sql1);
+        	    
+        	   } //end try
+        	    catch ( Exception e ) 
+        	    {
+        	      System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+        	      System.exit(0);
+        	    }//end catch
+            } //end while
+            fp.close();
+		}//end try
+	      catch (Exception e)
+	      {
+	         System.out.println(e);
+	      }
+	}//end MCpopulate
 	
 
 }

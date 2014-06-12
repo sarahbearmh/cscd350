@@ -1,0 +1,66 @@
+You are able to start a fire by rapidly rubbing two cool ranch doritos together for a long period of time., true
+In the weightlessness of space, if a frozen pea touches pepsi it will blow up., true
+Proper nutrition is important for an athlete., true
+Genetic make-up can influence health status., true
+Water is an example of a chemical element., false
+Spiders have six legs., false
+Mount Kilimanjaro is the tallest mountain in the world., false
+Opposite sides of a die always add up to seven., true
+The max amount of times a dry, square piece of paper can be folded exactly in half is 6., false
+White Chocolate can kill dogs., false
+^Nobody puts baby in a corner* is a quote from Havana Nights., false
+Pietrisycamollaviadelrechiotemexity means you are in a state of total confusion., true
+Stu likes to watch The Bachelor., true
+When glass breaks, the cracks move faster than 3,000 miles per hour., true
+The first product to have a bar code was Wrigleys gum., true
+Porcupines float in water., true
+You lose the most body heat through your head., false
+A mother bird will abandon her babies if you touch them., false
+An E-R diagram entity set is represent by a rectangle, true
+A report generator is used to data entry, false
+A relational database developer refers to a record as a tuple, true
+A subschema expresses the logical view, false
+Count function in SQL returns the number of values, true
+The method of access which uses key transformation is known as sequential, false
+Key to represent relationship between tables is called foreign key, true
+_____produces the relation that has attributes of R1 and R2 is intersection, false
+The relationship that is maintained between two entities is binary, true
+The Earth is round, true
+A 5 x 6 matrix has 6 rows, true,
+The first set of crayola crayons had 8 colors, true
+Krypton's atomic number is 26, false
+The strongest muscle in proportion to its size in the human body is the tongue, true
+Banging your head against a wall uses 160 calories an hour, false
+The average person falls asleep in 7 minutes, true,
+Butterflies taste with their tongue, false
+Elephants can't jump, true
+Starfish has a bigger brain than worms, false
+Snails can sleep for 3 years without eating, true
+Tony is the best rapper, true
+Nintendo was founded after the year 1990, false
+Atomic bombs work by atomic fission, true
+In computing, keyboards are used at input devices, true
+DNA is an abbreviation for ‘Deoxyribonucleic acid’, true
+The two chambers at the bottom of your heart are called ventricles, true
+An adult human body has over 211 bones, false
+Your ears are important when it comes to staying balanced, true
+Trans fats are good for you health, false
+‘Beefsteak’ is a variety of tomato, true
+Toilet water is usually mint flavored, false
+Chocolate never goes bad, false
+Microwaves are illegal in Japan, false
+20 people are killed daily by donkeys, false
+Eating cupcakes burns calories, false
+The Wright Brothers were afraid of heights, false
+In Los Angeles, there are fewer people than there are automobiles, true
+Camels have three eyelids to protect themselves from blowing sand, true
+Spurs and Heats were in the 2013 NBA playoffs, true
+Oklahoma Thunders were originally the Seattle Supersonics, true
+Miami Heats of the NBA have won 4 NBA championships, false
+Seattle Seahawks won their first Superbowl in the 2014 season, true
+Pointe shoes are worn in Ballet., true
+The first corvette was made in 1953., true
+Apple Pie is a popular non-alcoholic drink., false
+You must have a special license to drive a motorcycle in WA, true
+K-means is a distance measure in data mining., false
+Moscato is a deep red win., false

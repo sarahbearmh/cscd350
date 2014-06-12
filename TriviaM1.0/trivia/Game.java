@@ -17,7 +17,6 @@ public class Game
       Scanner kb = new Scanner(System.in);
       System.out.println("Please Enter Your Name: ");
       name = kb.nextLine();
-      
       if(name.equals("admin"))
       {
          System.out.println("Enter the password:");
@@ -28,8 +27,8 @@ public class Game
             IAdmin admin = new Admin();
             IAdminHandler adminH = new AdminHandler();
             adminH.AdminHandling(admin, kb);	  
-         }//end if
-      }//end if
+         }
+      }
       else
       {
          while(!sizeString.equalsIgnoreCase("S") && !sizeString.equalsIgnoreCase("M") && !sizeString.equalsIgnoreCase("L"))

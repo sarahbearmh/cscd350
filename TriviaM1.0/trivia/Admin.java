@@ -4,8 +4,7 @@ import java.sql.*;
 
 public class Admin implements IAdmin
 {
-	//
-	//adds true/false question to the database
+	
 	public void addTFQ(String question, String answer)
 	{
 		Connection c = null;
@@ -36,9 +35,6 @@ public class Admin implements IAdmin
 	      System.exit(0);
 	    }//end catch
 	}//end addTF
-	
-	//
-	//adds multiple choice question to the database
 	public void addMCQ(String question, String a1, String a2, String a3, String a4, String correct)
 	{
 		Connection c = null;
@@ -62,8 +58,7 @@ public class Admin implements IAdmin
 	    }//end catch
 	}//end addMCQ
 	
-	//
-	//prints the whole true false data table
+	
 	public void printTF()
 	{
 		Connection c = null;
@@ -101,8 +96,6 @@ public class Admin implements IAdmin
 	    }//end catch
 	}//end printTF
 	
-	//
-	//prints entire multiple choice table
 	public void printMC()
 	{
 		Connection c = null;
@@ -126,7 +119,7 @@ public class Admin implements IAdmin
 				answers[3] = res.getString("D");
 				answers[4] = res.getString("ANSWER");
 				System.out.println(id + ".) " + question + ", " + answers[0] + ", " + answers[1] + ", " + answers[2] + ", " + answers[3] + ", ANSWER: " + answers[4]);
-			}//end while
+			}
 	    
 	   } //end try
 	    catch ( Exception e ) 

@@ -92,7 +92,7 @@ public class Maze
       for(y = 0; y < this.size; y++)
       {
          System.out.print(" ***");
-      }//end for
+      }
       System.out.println();
       for(; x < this.size; x++)
       {
@@ -101,31 +101,31 @@ public class Maze
             if(y == 0)
             {
                System.out.print(" * ");
-            }//end if
+            }
             if(x == this.row && y == this.col)
             {
                System.out.print(" P ");
-            }//end if
+            }
             else
             {
                System.out.print("   ");
-            }//end else
+            }
             if(this.maze[x][y].hasRdoor() ==false)
             {
                System.out.print(" *");
-            }//end if
+            }
             else if(this.maze[x][y].getRight().getLocked() ==true && this.maze[x][y].getRight().getOpen() ==false) //door is locked
             {
                System.out.print("#");
-            }//end if
+            }
             else if(this.maze[x][y].getRight().getLocked() ==false && this.maze[x][y].getRight().getOpen() ==false) //answer question door
             {
                System.out.print("|");
-            }//end if
+            }
             else if(this.maze[x][y].getRight().getOpen() ==true) //door is open
             {
                System.out.print(":");
-            }//end if
+            }
           
          	
          }//end for y
@@ -136,28 +136,28 @@ public class Maze
             if(m==0)
             {
                System.out.print(" *");
-            }//end if
+            }
             if(this.maze[x][m].hasBdoor() == false)
             {
                System.out.print(" ***");
-            }//end if
+            }
             else if(this.maze[x][m].getBottom().getLocked() ==true && this.maze[x][m].getBottom().getOpen() ==false) //door is locked
             {
                System.out.print(" ###");
-            }//end if
+            }
             else if(this.maze[x][m].getBottom().getLocked() ==false && this.maze[x][m].getBottom().getOpen() ==false) //answer question door
             {
                System.out.print(" ---");
             
-            }//end if
+            }
             else if(this.maze[x][m].getBottom().getOpen() ==true) //door is open
             {
                System.out.print(" ...");
-            }//end if   
+            }           
             if(m==this.size-1)
             {
                System.out.print(" *");
-            }//end if
+            }
          	         
          }//end for m
          System.out.println();
@@ -177,19 +177,19 @@ public class Maze
             if(y< this.size -1 )
             {
                this.maze[x][y] = new Room(true, true);
-            }//end if
+            }
             else if(y == this.size-1)
             {
                this.maze[x][y] = new Room(true, false);
-            }//end if
-         }//end y for
+            }
+         }
          System.out.println();
-      }//end x for
+      }
       int y = 0;
       for(; y < this.size -1; y++)
       {
          this.maze[x][y] = new Room(false, true);//bottom, right
-      }//end for
+      }
       this.maze[x][y] = new Room(false, false);
    }//end fillMaze
    
@@ -465,7 +465,7 @@ public class Maze
                   {
                 	  this.skip--;
                 	  return ("Alright, you have "+this.skip+" skip(s) left.");
-                  }//end if
+                  }
                   while(answer.equalsIgnoreCase("skip")&&this.skip<1)
                   {
                 	  System.out.println("You can't skip anymore.");
@@ -473,7 +473,7 @@ public class Maze
                       answer = kb.nextLine();
                       copyAnswer = answer;
                       answer = checkMultiple(copyAnswer);
-                  }//end while
+                  }
                }//end else multiple choice question
                
              

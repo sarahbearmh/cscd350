@@ -1,0 +1,51 @@
+You are in a haunted house and you only have one match. There is a fireplace a stove and a lantern. Which one do you light first?, fireplace, stove, lantern, none of the above, d
+The original crayola crayons came in packs of: , 4, 6, 8, 12, a
+What is the phrase associated with Dr. Who^s Weeping Angels?, ^Don^t blink^, ^Don^t Look^, ^Allons-y^, ^Exterminate!^, a
+Who won the Stanely Cup in 2013?, Boston Bruins, Chicago Blackhawks, Pittsburgh Penguins, Los Angeles Kings, b
+Who did The Dish run away with?, The Fork, The Knife, The Spoon, Donald Trump, c
+Fiyero is a character in what Broadway Musical?, Guys and Dolls, Wicked, The Book of Mormon, Jersey Boys, b
+^Where I come from we believe all sorts of things that aren^t true. We call it History.^ was said by who?, The Wizard of Oz, Dorthy, Elphaba, Glinda, a
+A song from this musical was the opening number for Neil Patrick Harris for the 2012 Tony Awards:, Mamma Mia, Rock of Ages, The Book of Mormon, Pippin, c
+Turkey Lurkey Time is a song from what musical?, Promises Promises, Newsies, West Side Story, Bullets Over Broadway, a
+If someone says they are going to defenestrate you then they are doing what?, Throwing you out a window, Aiding in your defense, Breaking down your defenses, Hitting you, a
+^A word to the wise ain^t necessary - it^s the _______ ones that need the advice.^ - Bill Cosby, unwise, stupid, special, lonely, b
+^Get your ______ first, then you can distort them as you please.^ - Mark Twain, thoughts together, facts, promises, lies, b
+In the relational modes, cardinality is termed as:, Number of tuples, Number of attributes, Number of tables, Number of constraints, a
+Relational calculus is a, Procedural language, Non- Procedural language, Data definition language, High level language, b
+The view of total database content is, Conceptual view, Internal view, External view, Physical View, a
+Cartesian product in relational algebra is, a Unary operator, a Binary operator, a Ternary operator, not defined, b
+DML is provided for, Description of logical structure of database, Addition of new structures in the database system, Manipulation & processing of database, Definition of physical structure of database system, c
+ëASí clause is used in SQL for, Selection operation, Rename operation, Join operation, Projection operation, b
+ODBC stands for, Object Database Connectivity, Oral Database Connectivity, Oracle Database Connectivity, Open Database Connectivity, d
+Architecture of the database can be viewed as, two levels, four levels, three levels, one level, c
+In a relational model, relations are termed as, Tuples, Attributes, Tables, Rows, c
+The database schema is written in, HLL, DML, DDL, DCL, c
+In the architecture of a database system external level is the, physical level, logical level, conceptual level, view level, d
+An entity set that does not have sufficient attributes to form a primary key is a, strong entity set, weak entity set, simple entity set, primary entity set, b
+In a Hierarchical model records are organized as, Graph, List, Links, Tree, d
+In an E-R diagram attributes are represented by, rectangle, square, ellipse, triangle, c
+In case of entity integrity, the primary key may be, not Null, Null, both Null & not Null, any value, a
+The language which has recently become the defacto standard for interfacing application programs with relational database system is, Oracle, SQL, DBase, 4GL, b
+The language used in application programs to request data from the DBMS is referred to as the, DML, DDL, VDL, SDL, a
+A logical schema, is the entire database, is a standard way of organizing information into accessible parts, describes how data is actually stored on disk, both (A) and (C), a
+Related fields in a database are grouped to form a, data file, data record, menu, bank, b
+The database environment has all of the following components except:, users, separate files, database, database administrator, a
+Track and field star Carl Lewis won how many gold medals at the 1984 Olympic games, 2, 3, 4, 6, c
+Who did Stone Cold Steve Austin wrestle at the 1998 edition of ^Over the Edge”, Cactus Jack, Mankind, Dude Love, Mick Foley, c
+“Do you smell what the ___ is cooking” fill in the blank, Rock, Cook, Chef, Freak, a
+Which NBA player scored 8 points in the final 7 seconds of a game to lead his team to victory, Baron Davis, Kobe Bryant, Michael Jordan, Reggie Miller, d
+How many pieces are on the board at the start of a game of chess, 28, 36, 32, 40, c
+What is the atomic number for oxygen, 2, 6, 8, 14, c
+Who won the 2013 FIFA Club World Cup, USA, Raja Casablanca, Bayern Munich, Brazil, c
+Who was the top NBA scorer per game in the 2013-2014 season, LeBron James, Kevin Durant, Michael Jordan, James Harden, b
+Who is the first Hip Hop artist to surpass $1 billion dollars, Jay Z, Eminem, Tupac, Dr Dre, d
+In 1900 in the US what were the most popular names given to a boy and girl, Tony and Jane, John and Mary, William and Liz, George and Anne, b
+When did the Liberty Bell get its name, 1701, 1776, 19th Century, 2000, c
+Which of the following items was owned by the fewest U.S. homes in 1990, computer, cd player, cordless phone, dishwasher, b
+When Mt. St. Helens erupted on May 18, 1980, how many people were killed, 100, 23, 64, 57, d
+Before becoming George Bush^s Secretary of Defense, what was Dick Cheney^s position, congressman from Wyoming, governor of New Hampshire, secretary of defense under Ronald Reagan, governor of New York, a
+Which of these characters turned 40 years old in 1990, Charlie Brown, Bugs Bunny, Mickey Mouse, Fred Flintstone, a
+What did the ^D^ in ^D-Day^ stand for, doom, dark, day, dancing, c
+The first black American pictured on a U.S. postage stamp was who, Frederick Douglass, Booker T. Washington, Louis Armstrong, Joe Louis, d
+In 1990, in what percentage of U.S. married couples did the wife earn more money than the husband, 8, 18, 38, 58, b
+Who was voted to be on the cover of Madden 15, Russel Wilson, Tom Brady, Richard Sherman, Cam Newton, c

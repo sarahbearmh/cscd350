@@ -4,8 +4,6 @@ import java.util.Scanner;
 
 public class AdminHandler implements IAdminHandler
 {
-	//
-	//handles the prompting for the admin page
 	public void AdminHandling(IAdmin admin, Scanner kb)
 	{
 		int choice = 0;
@@ -22,7 +20,7 @@ public class AdminHandler implements IAdminHandler
 				  System.out.println("Enter the answer(true/false): ");
 				  String tfAnswer = kb.nextLine().toLowerCase();
 				  admin.addTFQ(question, tfAnswer);
-			  }//end if
+			  }
 			  else if(choice == 2)
 			  {
 				  kb.nextLine();
@@ -34,24 +32,24 @@ public class AdminHandler implements IAdminHandler
 				  System.out.println("Please enter the correct answer(a-d)");
 				  String correct = kb.nextLine();
 				  admin.addMCQ(question, answer[0], answer[1], answer[2], answer[3], correct);
-			  }//end if
+			  }
 			  else if(choice == 3)
 			  {
 				  admin.printTF();
-			  }//end if
+			  }
 			  else if(choice == 4)
 			  {
 				  admin.printMC();
-			  }//end if
+			  }
 			  else if(choice == 5)
 			  {
 				  System.exit(0);
-			  }//end if
+			  }
 			  else
 			  {
 				  System.out.println("Invalid Input");
-			  }//end else
-		  }	//end while  
+			  }
+		  }	  
 		
 	}//end method
 		

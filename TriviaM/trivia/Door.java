@@ -88,7 +88,7 @@ public class Door  implements Serializable{
 	      try
 	      {
 	        
-	         System.out.println(questionType);
+	         //System.out.println(questionType);
 	         Class.forName("org.sqlite.JDBC");
 	         c = DriverManager.getConnection("jdbc:sqlite:triviaQuestionDB.db");
 	         stmt = c.createStatement();
@@ -131,7 +131,7 @@ public class Door  implements Serializable{
 			   {
 				  
 				   this.questionType = 0;
-				   System.out.println("True/False Question");
+				   //System.out.println("True/False Question");
 				   stmt = c.createStatement();
 				   res = stmt.executeQuery("SELECT id, Question FROM TrueFalseQuestion WHERE played = 0 ORDER BY RANDOM() LIMIT 1");
 				   
@@ -147,7 +147,7 @@ public class Door  implements Serializable{
 			   {
 				   this.questionType = 1;
 				 
-				   System.out.println("Multiple Choice Question");
+				   //System.out.println("Multiple Choice Question");
 				   res = stmt.executeQuery("SELECT id, QUESTION, a, b, c, d from multipleChoiceQuestion WHERE PLAYED = 0 ORDER BY RANDOM() LIMIT 1");
 				   
 				   mainID = res.getInt("id");
@@ -181,7 +181,7 @@ public class Door  implements Serializable{
 			   {
 				   
 				this.questionType = 1;
-			   System.out.println("Multiple Choice Question");
+			   //System.out.println("Multiple Choice Question");
 			   res = stmt.executeQuery("SELECT id, QUESTION, a, b, c, d from multipleChoiceQuestion WHERE PLAYED = 0 ORDER BY RANDOM() LIMIT 1");
 			   
 			   mainID = res.getInt("id");
@@ -202,7 +202,7 @@ public class Door  implements Serializable{
 			   {
 				   this.questionType = 0;
 				  
-				   System.out.println("True/False Question");
+				   //System.out.println("True/False Question");
 				   stmt = c.createStatement();
 				   res = stmt.executeQuery("SELECT id, Question FROM TrueFalseQuestion WHERE played = 0 ORDER BY RANDOM() LIMIT 1");
 				   

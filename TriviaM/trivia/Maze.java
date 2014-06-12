@@ -4,7 +4,7 @@ import java.util.*;
 public class Maze 
 {
  
-   private int row = 0, col = 0, win = 0, size;	Room[] [] maze;
+   private int row = 0, col = 0, size;	Room[] [] maze;
    private int skip = 3;
    
    public Maze(int size)
@@ -207,13 +207,6 @@ public class Maze
    
    
    
-   public int getWin()
-   {
-      return this.win;
-   }//end getWin()
-   
-   
-   
    public void setRow(int row)
    {
       this.row = row;
@@ -225,13 +218,6 @@ public class Maze
    {
       this.col = col;
    }//end setCol
-   
-   
-   
-   public void setWin(int win)
-   {
-      this.win = win;
-   }//end setWin
 
 
    
@@ -239,7 +225,7 @@ public class Maze
    {
       String myAnswer=answer;
       Scanner kb  = new Scanner(System.in);
-      while(!(myAnswer.equalsIgnoreCase("t") || myAnswer.equalsIgnoreCase("true") || myAnswer.equalsIgnoreCase("f") || myAnswer.equalsIgnoreCase("false")|| myAnswer.equalsIgnoreCase("skip")||myAnswer.equalsIgnoreCase("pass")))
+      while(!(myAnswer.equalsIgnoreCase("t") || myAnswer.equalsIgnoreCase("true") || myAnswer.equalsIgnoreCase("f") || myAnswer.equalsIgnoreCase("false")|| myAnswer.equalsIgnoreCase("skip")||myAnswer.equalsIgnoreCase("pass")||myAnswer.equalsIgnoreCase("quit")))
       {
          System.out.println("Please enter a 't', 'true', 'f' or 'false'");
          myAnswer = kb.nextLine();
@@ -254,6 +240,10 @@ public class Maze
       {
          myAnswer = "f";
       }
+      if(myAnswer.equalsIgnoreCase("quit"))
+      {
+         System.exit(0);
+      }
       
      //  kb.close();
       return myAnswer;
@@ -264,11 +254,15 @@ public class Maze
    {
       String myAnswer = answer;
       Scanner kb = new Scanner(System.in);
-      while(!(myAnswer.equalsIgnoreCase("a") || myAnswer.equalsIgnoreCase("b") || myAnswer.equalsIgnoreCase("c") || myAnswer.equalsIgnoreCase("d")|| myAnswer.equalsIgnoreCase("skip") ||myAnswer.equalsIgnoreCase("pass") ))
+      while(!(myAnswer.equalsIgnoreCase("a") || myAnswer.equalsIgnoreCase("b") || myAnswer.equalsIgnoreCase("c") || myAnswer.equalsIgnoreCase("d")|| myAnswer.equalsIgnoreCase("skip") ||myAnswer.equalsIgnoreCase("pass")||myAnswer.equalsIgnoreCase("quit")))
       {
          System.out.println("Please enter 'a', 'b', 'c' or 'd' as your answer");
          myAnswer = kb.nextLine();
            
+      }
+      if(myAnswer.equalsIgnoreCase("quit"))
+      {
+         System.exit(0);
       }
       return myAnswer;
    }//end checkMultiple
@@ -283,14 +277,12 @@ public class Maze
          {
             this.maze[this.row][this.col].getRight().setOpen(true);
             this.maze[this.row][this.col].getRight().setLocked(false);
-            this.maze[this.row][this.col].getLeft().setOpen(true);
             this.col++;
             return "Your new position is " + this.row + ", " + this.col;
          }
          else
          {
             this.maze[this.row][this.col].getRight().setLocked(true);
-            this.maze[this.row][this.col].getLeft().setLocked(true);
             return "Answer is incorrect: your position is " + this.row + ", " + this.col;
          }
          
@@ -301,7 +293,6 @@ public class Maze
          {
             this.maze[this.row][this.col].getBottom().setOpen(true);
             this.maze[this.row][this.col].getBottom().setLocked(false);
-            this.maze[this.row][this.col].getTop().setOpen(true);
             this.row++;
             return "Your new position is " + this.row + ", " + this.col;
          }
@@ -315,7 +306,7 @@ public class Maze
       }
       else if(theDoor.equalsIgnoreCase("up"))
       {
-         if(answer.equalsIgnoreCase(this.maze[this.row-1][this.col].getTop().getAnswer())|| answer.equalsIgnoreCase("pass"))
+         if(answer.equalsIgnoreCase(this.maze[this.row-1][this.col].getBottom().getAnswer())|| answer.equalsIgnoreCase("pass"))
          {
             this.maze[this.row-1][this.col].getBottom().setOpen(true);
             this.maze[this.row-1][this.col].getBottom().setLocked(false);              
@@ -332,7 +323,7 @@ public class Maze
       }
       else if(theDoor.equalsIgnoreCase("left"))
       {
-         if(answer.equalsIgnoreCase(this.maze[this.row][this.col-1].getLeft().getAnswer())|| answer.equalsIgnoreCase("pass"))
+         if(answer.equalsIgnoreCase(this.maze[this.row][this.col-1].getRight().getAnswer())|| answer.equalsIgnoreCase("pass"))
          {
             this.maze[this.row][this.col-1].getRight().setOpen(true);
             this.maze[this.row][this.col-1].getRight().setLocked(false);              
@@ -426,7 +417,8 @@ public class Maze
             {
                this.maze[this.row][this.col].getRight().getQuestion();
                System.out.println(door.getThisQuestion());
-              System.out.println("You may enter skip to skip this question.");
+               if(this.skip > 0)
+            	   System.out.println("You may enter skip to skip this question.");
                questionType = door.getType();
                answer = kb.nextLine();
                copyAnswer = answer;                   
@@ -494,7 +486,8 @@ public class Maze
             {
                this.maze[this.row][this.col].getBottom().getQuestion();
               System.out.println(door.getThisQuestion());
-              System.out.println("You may enter skip to skip this question.");
+              if(this.skip > 0)
+            	  System.out.println("You may enter skip to skip this question.");
                questionType = door.getType();
                answer = kb.nextLine();
                copyAnswer = answer;
@@ -563,7 +556,8 @@ public class Maze
             
                this.maze[this.row-1][this.col].getBottom().getQuestion();
                System.out.println(door.getThisQuestion());
-               System.out.println("You may enter skip to skip this question.");
+               if(this.skip > 0)
+            	   System.out.println("You may enter skip to skip this question.");
                //need to get questionType
                questionType = door.getType();
                answer = kb.nextLine();
@@ -635,7 +629,8 @@ public class Maze
             
               this.maze[this.row][this.col-1].getRight().getQuestion();
                System.out.println(door.getThisQuestion());
-               System.out.println("You may enter skip to skip this question.");
+               if(this.skip > 0)
+            	   System.out.println("You may enter skip to skip this question.");
                questionType = door.getType();
                answer = kb.nextLine();
                copyAnswer = answer;

@@ -45,7 +45,7 @@ public class Door  implements Serializable{
    public void setTried(String tried)
    {
       this.tried = tried;
-   }
+   }//end setTried
     
    public String getUserInput()
    {
@@ -57,7 +57,8 @@ public class Door  implements Serializable{
 	  this.userInput = input;
    }//end getUserInput
    
-   
+   //
+   //set the TF questions to 1 when question has be asked from the database
    public void setTFquestion()
    {
 	   Connection c = null;
@@ -79,7 +80,8 @@ public class Door  implements Serializable{
 	      }
    }//setTFquestion
    
-   
+   //
+   //set the MC questions to 1 when question has be asked from database
    public void setMCquestion()
    {
 	   Connection c = null;
@@ -88,7 +90,7 @@ public class Door  implements Serializable{
 	      try
 	      {
 	        
-	         //System.out.println(questionType);
+	         System.out.println(questionType);
 	         Class.forName("org.sqlite.JDBC");
 	         c = DriverManager.getConnection("jdbc:sqlite:triviaQuestionDB.db");
 	         stmt = c.createStatement();
@@ -102,7 +104,10 @@ public class Door  implements Serializable{
 	      }
 	   
    }//end setTFquestion
-	
+   
+   //
+   //get a question from the database when user triggers a door. if question type == 0 then its a T/F question else its a MC question
+   //this will also check to see if we run out of T/F questions then it'll grab a MC question. Vice versa
    public String getQuestion()
    {
 	   Connection c = null;
@@ -131,7 +136,7 @@ public class Door  implements Serializable{
 			   {
 				  
 				   this.questionType = 0;
-				   //System.out.println("True/False Question");
+				   System.out.println("True/False Question");
 				   stmt = c.createStatement();
 				   res = stmt.executeQuery("SELECT id, Question FROM TrueFalseQuestion WHERE played = 0 ORDER BY RANDOM() LIMIT 1");
 				   
@@ -147,7 +152,7 @@ public class Door  implements Serializable{
 			   {
 				   this.questionType = 1;
 				 
-				   //System.out.println("Multiple Choice Question");
+				   System.out.println("Multiple Choice Question");
 				   res = stmt.executeQuery("SELECT id, QUESTION, a, b, c, d from multipleChoiceQuestion WHERE PLAYED = 0 ORDER BY RANDOM() LIMIT 1");
 				   
 				   mainID = res.getInt("id");
@@ -181,7 +186,7 @@ public class Door  implements Serializable{
 			   {
 				   
 				this.questionType = 1;
-			   //System.out.println("Multiple Choice Question");
+			   System.out.println("Multiple Choice Question");
 			   res = stmt.executeQuery("SELECT id, QUESTION, a, b, c, d from multipleChoiceQuestion WHERE PLAYED = 0 ORDER BY RANDOM() LIMIT 1");
 			   
 			   mainID = res.getInt("id");
@@ -202,7 +207,7 @@ public class Door  implements Serializable{
 			   {
 				   this.questionType = 0;
 				  
-				   //System.out.println("True/False Question");
+				   System.out.println("True/False Question");
 				   stmt = c.createStatement();
 				   res = stmt.executeQuery("SELECT id, Question FROM TrueFalseQuestion WHERE played = 0 ORDER BY RANDOM() LIMIT 1");
 				   
@@ -223,9 +228,8 @@ public class Door  implements Serializable{
 
    }//end getQuestion
    
-   
-   
-   
+   //
+   //will get the answer for the question from the database and return the answer the the maze class
    public String getAnswer()
    {
       Connection c = null;
@@ -287,9 +291,8 @@ public class Door  implements Serializable{
       return this.answer;
    }//end getAnswer
    
-   
-   
-   
+   //
+   //return questionType 1 or 0
    public int getType()
    {
       return questionType;
@@ -299,7 +302,7 @@ public class Door  implements Serializable{
    {
       return this.locked;
    }//end getOpen   
-  
+
    public void setLocked(boolean lock)
    {
       this.locked = lock;

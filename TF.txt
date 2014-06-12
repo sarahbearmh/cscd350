@@ -36,3 +36,26 @@ Butterflies taste with their tongue, false
 Elephants can't jump, true
 Starfish has a bigger brain than worms, false
 Snails can sleep for 3 years without eating, true
+Tony is the best rapper, true
+Nintendo was founded after the year 1990, false
+Atomic bombs work by atomic fission, true
+In computing, keyboards are used at input devices, true
+DNA is an abbreviation for ‘Deoxyribonucleic acid’, true
+The two chambers at the bottom of your heart are called ventricles, true
+An adult human body has over 211 bones, false
+Your ears are important when it comes to staying balanced, true
+Trans fats are good for you health, false
+‘Beefsteak’ is a variety of tomato, true
+Toilet water is usually mint flavored, false
+Chocolate never goes bad, false
+Microwaves are illegal in Japan, false
+20 people are killed daily by donkeys, false
+Eating cupcakes burns calories, false
+The Wright Brothers were afraid of heights, false
+In Los Angeles, there are fewer people than there are automobiles, true
+Camels have three eyelids to protect themselves from blowing sand, true
+Spurs and Heats were in the 2013 NBA playoffs, true
+Oklahoma Thunders were originally the Seattle Supersonics, true
+Miami Heats of the NBA have won 4 NBA championships, false
+Seattle Seahawks won their first Superbowl in the 2014 season, true
+

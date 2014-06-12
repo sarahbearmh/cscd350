@@ -30,3 +30,22 @@ The language used in application programs to request data from the DBMS is refer
 A logical schema, is the entire database, is a standard way of organizing information into accessible parts, describes how data is actually stored on disk, both (A) and (C), a
 Related fields in a database are grouped to form a, data file, data record, menu, bank, b
 The database environment has all of the following components except:, users, separate files, database, database administrator, a
+Track and field star Carl Lewis won how many gold medals at the 1984 Olympic games, 2, 3, 4, 6, c
+Who did Stone Cold Steve Austin wrestle at the 1998 edition of "Over the Edge”, Cactus Jack, Mankind, Dude Love, Mick Foley, c
+“Do you smell what the ___ is cooking” fill in the blank, Rock, Cook, Chef, Freak
+Which NBA player scored 8 points in the final 7 seconds of a game to lead his team to victory, Baron Davis, Kobe Bryant, Michael Jordan, Reggie Miller, d
+How many pieces are on the board at the start of a game of chess, 28, 36, 32, 40, c
+What is the atomic number for oxygen, 2, 6, 8, 14, c
+Who won the 2013 FIFA Club World Cup, USA, Raja Casablanca, Bayern Munich, Brazil, c
+Who was the top NBA scorer per game in the 2013-2014 season, LeBron James, Kevin Durant, Michael Jordan, James Harden, b
+Who is the first Hip Hop artist to surpass $1 billion dollars, Jay Z, Eminem, Tupac, Dr Dre, d
+In 1900 in the US what were the most popular names given to a boy and girl, Tony and Jane, John and Mary, William and Liz, George and Anne, b
+When did the Liberty Bell get its name, 1701, 1776, 19th Century, 2000, c
+Which of the following items was owned by the fewest U.S. homes in 1990, computer, cd player, cordless phone, dishwasher, b
+When Mt. St. Helens erupted on May 18, 1980, how many people were killed, 100, 23, 64, 57, d
+Before becoming George Bush's Secretary of Defense, what was Dick Cheney's position, congressman from Wyoming, governor of New Hampshire, secretary of defense under Ronald Reagan, governor of New York, a
+Which of these characters turned 40 years old in 1990, Charlie Brown, Bugs Bunny, Mickey Mouse, Fred Flintstone, a
+What did the "D" in "D-Day" stand for, doom, dark, day, dancing, c
+The first black American pictured on a U.S. postage stamp was who, Frederick Douglass, Booker T. Washington, Louis Armstrong, Joe Louis, d
+In 1990, in what percentage of U.S. married couples did the wife earn more money than the husband, 8, 18, 38, 58, b
+Who was voted to be on the cover of Madden 15, Russel Wilson, Tom Brady, Richard Sherman, Cam Newton, c

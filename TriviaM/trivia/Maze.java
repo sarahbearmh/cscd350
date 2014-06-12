@@ -15,7 +15,9 @@ public class Maze
       this.maze = new  Room[size][size];
    }//end maze
    
-   private boolean valid (int row, int column) //check if the row and col is not out of bound before moving
+   //
+ //check if the row and col is not out of bound before moving
+   private boolean valid (int row, int column) 
    {
       boolean result = false;
    
@@ -24,15 +26,16 @@ public class Maze
           column >= 0 && column < this.size)
       {
          result = true;
-      }
+      }//end if (row >= 0 && row < this.size && column >= 0 && column < this.size)
    
       return result;
    }//end valid
 
 
    
-   
-   public boolean traverse (int row, int column)//looks for a path to the end in the maze
+ //
+ //looks for a path to the end in the maze
+   public boolean traverse (int row, int column)
    {
       boolean done = false;
       
@@ -40,49 +43,48 @@ public class Maze
       {
          
          if (row == this.size -1 && column == this.size-1)
-            done = true;  // the maze is solved
+            done = true; 
          else
          {
             if(this.maze[row][column].hasBdoor() && this.maze[row][column].getBottom().getLocked()==false && this.maze[row][column].getBottom().getTried()==false)
             {
-            //System.out.println("down");
+          
                this.maze[row][column].getBottom().setTried("yes");
                done = traverse (row+1, column);     // down  
                this.maze[row][column].getBottom().setTried("no"); 
             
-            }
+            }//end if(this.maze[row][column].hasBdoor().....
             if (this.maze[row][column].hasRdoor() && !done && this.maze[row][column].getRight().getLocked()==false && this.maze[row][column].getRight().getTried()==false)
             {
-            	//System.out.println("right");
+            	
                this.maze[row][column].getRight().setTried("yes");
                done = traverse ( row, column+1);  // right
                this.maze[row][column].getRight().setTried("no");                
-            }
-            
+            }//end if (this.maze[row][column].hasRdoor()             
             
             if (valid(row-1, column) && this.maze[row-1][column].hasBdoor() && !done && this.maze[row-1][column].getBottom().getLocked()==false && this.maze[row-1][column].getBottom().getTried()==false)
             { 
-            //	System.out.println("up");
+           
                this.maze[row-1][column].getBottom().setTried("yes");
                done = traverse (row-1, column);  // up
                this.maze[row-1][column].getBottom().setTried("no");
-            }
+            }//end  if (valid(row-1, column) && this.maze[row-1][column].hasBdoor() 
             if (valid(row, column-1) && this.maze[row][column-1].hasRdoor() && !done && this.maze[row][column-1].getRight().getLocked()==false && this.maze[row][column-1].getRight().getTried()==false)
             {
-            //	System.out.println("left");
                this.maze[row][column-1].getRight().setTried("yes");
                done = traverse ( row, column-1);  // left
                this.maze[row][column-1].getRight().setTried("no");
-            }
-         }
-      }
+            }//end  if (valid(row, column-1) && this.maze[row][column-1].hasRdoor() &
+         }//end big else
+      }//end if (valid (row, column) )
       
       return done;
    }//end traverse
    
 
-   
-   public void printMaze() //prints the layout of the maze
+   //
+ //prints the layout of the maze
+   public void printMaze() 
    {
    
       int x = 0, y;
@@ -163,9 +165,9 @@ public class Maze
    }//end printMaze
    
    
-   
-   
-   public void fillMaze() //fills the maze with rooms and doors
+   //
+ //fills the maze with rooms and doors   
+   public void fillMaze() 
    {
       int x = 0;
       for(; x < this.size - 1; x++)
@@ -192,36 +194,41 @@ public class Maze
    }//end fillMaze
    
    
-	
+   //
+   //returns the current row player is at
    public int getRow()
    {
       return this.row;
    }//end getRow()	
    
    
-   
+   //
+   //returns the current column player is at
    public int getCol()
    {
       return this.col;
    }//end getCol()
    
    
-   
+   //
+   //change current row user is at
    public void setRow(int row)
    {
       this.row = row;
    }//end setRow()
    
    
-   
+   //
+   //change current row user is at
    public void setCol(int col)
    {
       this.col = col;
    }//end setCol
 
 
-   
-   public String checkTrueFalse(String answer)//checks and make sure user enters t or f
+   //
+ //checks and make sure user enters t or f or other cheats
+   public String checkTrueFalse(String answer)
    {
       String myAnswer=answer;
       Scanner kb  = new Scanner(System.in);
@@ -230,27 +237,28 @@ public class Maze
          System.out.println("Please enter a 't', 'true', 'f' or 'false'");
          myAnswer = kb.nextLine();
           // answer = checkAnswer(answer);
-      }
+      }// end  while(!(myAns
        
       if(answer.equalsIgnoreCase("true"))
       {
          myAnswer = "t";
-      }
+      }//end  if(answer.equalsIgnoreCase("true"))
       if(answer.equalsIgnoreCase("false"))
       {
          myAnswer = "f";
-      }
+      }//end  if(answer.equalsIgnoreCase("false"))
       if(myAnswer.equalsIgnoreCase("quit"))
       {
          System.exit(0);
-      }
-      
-     //  kb.close();
+      }//end   if(myAnswer.equalsIgnoreCase("quit"))
+    
       return myAnswer;
    }//end checkTrueFalse
    
    
-   public String checkMultiple(String answer)//checks and makes sure user enters a b c or d
+   //
+ //checks and makes sure user enters a b c or d
+   public String checkMultiple(String answer)
    {
       String myAnswer = answer;
       Scanner kb = new Scanner(System.in);
@@ -259,16 +267,18 @@ public class Maze
          System.out.println("Please enter 'a', 'b', 'c' or 'd' as your answer");
          myAnswer = kb.nextLine();
            
-      }
+      }//end   while(!
       if(myAnswer.equalsIgnoreCase("quit"))
       {
          System.exit(0);
-      }
+      }//end  if(myAnswer.equalsIgnoreCase("quit"))
       return myAnswer;
    }//end checkMultiple
    
    
-   public String getCheckAnswer(String theDoor, String answer)//check if the answer is right and move
+   //
+ //check if the answer is right and move
+   public String getCheckAnswer(String theDoor, String answer)
    {
 	   
       if(theDoor.equalsIgnoreCase("right"))
@@ -343,8 +353,9 @@ public class Maze
    }//end getCheckAnswer
    
    
-   
-   public String checkLockedOrWall(Door door, String position) //checks and make sure door is not locked or hit a wall
+   //
+   //checks and make sure door is not locked or hit a wall
+   public String checkLockedOrWall(Door door, String position) 
    {
       if(position.equalsIgnoreCase("down"))
       {
@@ -352,56 +363,57 @@ public class Maze
          {
             this.row++;
             return "Your new position for open door is " + this.row + ", " + this.col;
-         }
+         }//end if((door.getLocked()==false && door.getOpen()==true))
          else if(door.getLocked()==true)
          {
             return "This door is locked, cannot move that way";
-         }
-      }
+         }// end else if(door.getLocked()==true)
+      }//end  if(position.equalsIgnoreCase("down"))
       else if(position.equalsIgnoreCase("right"))
       {
          if((door.getLocked()==false && door.getOpen()==true))
          {
             this.col++;
             return "Your new position for open door is " + this.row + ", " + this.col;
-         }
+         }//end if((door.getLocked()==false && door.getOpen()==true))
          else if(door.getLocked()==true)
          {
             return "This door is locked, cannot move that way";
-         }
-      }
+         }// ennd  else if(door.getLocked()==true)
+      }//end  else if(position.equalsIgnoreCase("right"))
       else if(position.equalsIgnoreCase("left"))
       {
          if((door.getLocked()==false && door.getOpen()==true))
          {
             this.col--;
             return "Your new position for open door is " + this.row + ", " + this.col;
-         }
+         }//end  if((door.getLocked()==false && door.getOpen()==true))
          else if(door.getLocked()==true)
          {
             return "This door is locked, cannot move that way";
-         }
-      }
+         }//end else if(door.getLocked()==true)
+      }//end  else if(position.equalsIgnoreCase("left"))
       else if(position.equalsIgnoreCase("up"))
       {
          if((door.getLocked()==false && door.getOpen()==true))
          {
             this.row--;
             return "Your new position for open door is " + this.row + ", " + this.col;
-         }
+         }//end  if((door.getLocked()==false && door.getOpen()==true))
          else if(door.getLocked()==true)
          {
             return "This door is locked, cannot move that way";
-         }
-      }
+         }// end   else if(door.getLocked()==true)
+      }//end  else if(position.equalsIgnoreCase("up"))
    
       return "should not be here";
    }//end checkLockedOrWall
    
    
    
-   
-   public String move(String dir)//moving around the maze if it is valid
+   //
+ //moving around the maze if it is valid
+   public String move(String dir)
    {
       Scanner kb = new Scanner(System.in);
            String answer = "";
@@ -432,7 +444,7 @@ public class Maze
                   {
                 	  this.skip--;
                 	  return ("Alright, you have "+this.skip+" skip(s) left.");
-                  }
+                  }//end if(answer.equalsIgnoreCase("skip")&&this.skip>0)
                   while(answer.equalsIgnoreCase("skip")&&this.skip<1)
                   {
                 	  System.out.println("You can't skip anymore.");
@@ -440,8 +452,9 @@ public class Maze
                       answer = kb.nextLine();
                       copyAnswer = answer;
                       answer = checkTrueFalse(copyAnswer);
-                  }
-               }
+                  }//end while(answer.equalsIgnoreCase("skip")&&this.skip<1)
+                  
+               }//end if it is a true/false question
                
                
                else //if multiple choice question
@@ -461,19 +474,19 @@ public class Maze
                       copyAnswer = answer;
                       answer = checkMultiple(copyAnswer);
                   }
-               }
+               }//end else multiple choice question
                
              
                return getCheckAnswer("right",answer); //check if the answer is correct or not
                
-            }//end if of getLocked() and getOpened()
+            }//end if(door.getLocked()==false && door.getOpen()==false)
             
             return checkLockedOrWall(door,"right");//if can't move then check if door is locked or wall
          
-         }
+         }//end if column is valid for right
          
          return "You cannot move that way";
-      }
+      } //end if the direction is right
       
       
       else if(dir.equalsIgnoreCase("down"))
@@ -502,7 +515,8 @@ public class Maze
                   {
                 	  this.skip--;
                 	  return ("Alright, you have "+this.skip+" skip(s) left.");
-                  }
+                  }//end if(answer.equalsIgnoreCase("skip")&&this.skip>0)
+                  
                   while(answer.equalsIgnoreCase("skip")&&this.skip<1)
                   {
                 	  System.out.println("You can't skip anymore.");
@@ -510,8 +524,8 @@ public class Maze
                       answer = kb.nextLine();
                       copyAnswer = answer;
                       answer = checkTrueFalse(copyAnswer);
-                  }
-               }
+                  }//end while(answer.equalsIgnoreCase("skip")&&this.skip<1)
+               }// end if it is a true/false question
                
                
                else //if multiple choice question
@@ -522,7 +536,8 @@ public class Maze
                   {
                 	  this.skip--;
                 	  return ("Alright, you have "+this.skip+" skip(s) left.");
-                  }
+                  }//end if(answer.equalsIgnoreCase("skip")&&this.skip>0)
+                  
                   while(answer.equalsIgnoreCase("skip")&&this.skip<1)
                   {
                 	  System.out.println("You can't skip anymore.");
@@ -530,18 +545,22 @@ public class Maze
                       answer = kb.nextLine();
                       copyAnswer = answer;
                       answer = checkMultiple(copyAnswer);
-                  }
-               }
+                  } //end  while(answer.equalsIgnoreCase("skip")&&this.skip<1)
+                  
+               }//end else multiple choice question
                
              
                return getCheckAnswer("down",answer); //check if the answer is correct or not
-            }//end locked =false and open = false
+               
+            }//end if(door.getLocked()==false && door.getOpen()==false)
             
             return checkLockedOrWall(door,"down");//if can't move then check if door is locked or wall
-         }
+            
+         } //end  if(this.row < size - 1)
         
          return "You cannot move that way";
-      }
+         
+      }// end  else if(dir.equalsIgnoreCase("down"))
       
       
       
@@ -573,7 +592,8 @@ public class Maze
                   {
                 	  this.skip--;
                 	  return ("Alright, you have "+this.skip+" skip(s) left.");
-                  }
+                  }//end  if(answer.equalsIgnoreCase("skip")&&this.skip>0)
+                  
                   while(answer.equalsIgnoreCase("skip")&&this.skip<1)
                   {
                 	  System.out.println("You can't skip anymore.");
@@ -581,8 +601,8 @@ public class Maze
                       answer = kb.nextLine();
                       copyAnswer = answer;
                       answer = checkTrueFalse(copyAnswer);
-                  }
-               }
+                  }// end  while(answer.equalsIgnoreCase("skip")&&this.skip<1)
+               }// end if(questionType == 0)
                
                
                else //if multiple choice question
@@ -593,7 +613,7 @@ public class Maze
                   {
                 	  this.skip--;
                 	  return ("Alright, you have "+this.skip+" skip(s) left.");
-                  }
+                  }//end  if(answer.equalsIgnoreCase("skip")&&this.skip>0)
                   while(answer.equalsIgnoreCase("skip")&&this.skip<1)
                   {
                 	  System.out.println("You can't skip anymore.");
@@ -601,21 +621,22 @@ public class Maze
                       answer = kb.nextLine();
                       copyAnswer = answer;
                       answer = checkMultiple(copyAnswer);
-                  }
-               }
-               
+                  }//end while(answer.equalsIgnoreCase("skip")&&this.skip<1)
+                  
+               }    //end else //if multiple choice question          
              
              
                return getCheckAnswer("up",answer); //check if the answer is correct or not
-            }//end lock is false and open is false
+               
+            }//end  if(door.getLocked()==false && door.getOpen()==false)
             
             return checkLockedOrWall(door,"up");//if can't move then check if door is locked or wall
          
             
-         }
+         } // end  if(this.row > 0)
         
          return "You cannot move that way";
-      }
+      }//end  else if(dir.equalsIgnoreCase("up"))
       
       
       
@@ -645,7 +666,7 @@ public class Maze
                   {
                 	  this.skip--;
                 	  return ("Alright, you have "+this.skip+" skip(s) left.");
-                  }
+                  }//  end if(answer.equalsIgnoreCase("skip")&&this.skip>0)
                   while(answer.equalsIgnoreCase("skip")&&this.skip<1)
                   {
                 	  System.out.println("You can't skip anymore.");
@@ -653,8 +674,8 @@ public class Maze
                       answer = kb.nextLine();
                       copyAnswer = answer;
                       answer = checkTrueFalse(copyAnswer);
-                  }
-               }
+                  }//end  while(answer.equalsIgnoreCase("skip")&&this.skip<1)
+               }//end  if(questionType == 0)
                
                
                else //if multiple choice question
@@ -665,7 +686,7 @@ public class Maze
                   {
                 	  this.skip--;
                 	  return ("Alright, you have "+this.skip+" skip(s) left.");
-                  }
+                  }// end if(answer.equalsIgnoreCase("skip")&&this.skip>0)
                   while(answer.equalsIgnoreCase("skip")&&this.skip<1)
                   {
                 	  System.out.println("You can't skip anymore.");
@@ -673,25 +694,25 @@ public class Maze
                       answer = kb.nextLine();
                       copyAnswer = answer;
                       answer = checkMultiple(copyAnswer);
-                  }
-               }
+                  } // while(answer.equalsIgnoreCase("skip")&&this.skip<1)
+               }//end if multiple choice question
                
              
              
                return getCheckAnswer("left",answer); //check if the answer is correct or not
-            }//end lock is false and open is false
+            }// end  if(door.getLocked()==false && door.getOpen()==false)
             
             return checkLockedOrWall(door,"left");//if can't move then check if door is locked or wall
             
-         }
+         }//end else if(dir.equalsIgnoreCase("left"))
         
          return "You cannot move that way";
-      }
+         
+      }//end  else if(dir.equalsIgnoreCase("left"))
       
       return "Invalid input!";
       
-   }//traverse
-   
+   }//end move
    
    
 }//end class

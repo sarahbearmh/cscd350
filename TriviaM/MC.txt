@@ -24,15 +24,15 @@ In the architecture of a database system external level is the, physical level, 
 An entity set that does not have sufficient attributes to form a primary key is a, strong entity set, weak entity set, simple entity set, primary entity set, b
 In a Hierarchical model records are organized as, Graph, List, Links, Tree, d
 In an E-R diagram attributes are represented by, rectangle, square, ellipse, triangle, c
-In case of entity integrity, the primary key may be, not Null, Null, both Null & not Null, any value, a
+In case of entity integrity- the primary key may be, not Null, Null, both Null & not Null, any value, a
 The language which has recently become the defacto standard for interfacing application programs with relational database system is, Oracle, SQL, DBase, 4GL, b
 The language used in application programs to request data from the DBMS is referred to as the, DML, DDL, VDL, SDL, a
 A logical schema, is the entire database, is a standard way of organizing information into accessible parts, describes how data is actually stored on disk, both (A) and (C), a
 Related fields in a database are grouped to form a, data file, data record, menu, bank, b
 The database environment has all of the following components except:, users, separate files, database, database administrator, a
 Track and field star Carl Lewis won how many gold medals at the 1984 Olympic games, 2, 3, 4, 6, c
-Who did Stone Cold Steve Austin wrestle at the 1998 edition of ^Over the Edge”, Cactus Jack, Mankind, Dude Love, Mick Foley, c
-“Do you smell what the ___ is cooking” fill in the blank, Rock, Cook, Chef, Freak, a
+Who did Stone Cold Steve Austin wrestle at the 1998 edition of *Over the Edge*, Cactus Jack, Mankind, Dude Love, Mick Foley, c
+*Do you smell what the ___ is cooking* fill in the blank, Rock, Cook, Chef, Freak, a
 Which NBA player scored 8 points in the final 7 seconds of a game to lead his team to victory, Baron Davis, Kobe Bryant, Michael Jordan, Reggie Miller, d
 How many pieces are on the board at the start of a game of chess, 28, 36, 32, 40, c
 What is the atomic number for oxygen, 2, 6, 8, 14, c

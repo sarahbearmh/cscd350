@@ -1,14 +1,14 @@
 You are able to start a fire by rapidly rubbing two cool ranch doritos together for a long period of time., true
-In the weightlessness of space, if a frozen pea touches pepsi it will blow up., true
+Water is an example of a chemical element., false
+In the weightlessness of space - if a frozen pea touches pepsi it will blow up., true
 Proper nutrition is important for an athlete., true
 Genetic make-up can influence health status., true
-Water is an example of a chemical element., false
 Spiders have six legs., false
 Mount Kilimanjaro is the tallest mountain in the world., false
 Opposite sides of a die always add up to seven., true
-The max amount of times a dry, square piece of paper can be folded exactly in half is 6., false
+The max amount of times a dry - square piece of paper can be folded exactly in half is 6., false
 White Chocolate can kill dogs., false
-^Nobody puts baby in a corner* is a quote from Havana Nights., false
+*Nobody puts baby in a corner* is a quote from Havana Nights., false
 Pietrisycamollaviadelrechiotemexity means you are in a state of total confusion., true
 Stu likes to watch The Bachelor., true
 When glass breaks, the cracks move faster than 3,000 miles per hour., true
@@ -40,12 +40,12 @@ Tony is the best rapper, true
 Nintendo was founded after the year 1990, false
 Atomic bombs work by atomic fission, true
 In computing, keyboards are used at input devices, true
-DNA is an abbreviation for ‘Deoxyribonucleic acid’, true
+DNA is an abbreviation for *Deoxyribonucleic acid*, true
 The two chambers at the bottom of your heart are called ventricles, true
 An adult human body has over 211 bones, false
 Your ears are important when it comes to staying balanced, true
 Trans fats are good for you health, false
-‘Beefsteak’ is a variety of tomato, true
+*Beefsteak* is a variety of tomato, true
 Toilet water is usually mint flavored, false
 Chocolate never goes bad, false
 Microwaves are illegal in Japan, false

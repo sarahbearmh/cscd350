@@ -14,7 +14,9 @@ public class TriviaMazeQuestion {
 	      System.out.println("Opened database successfully");
 
 	      stmt = c.createStatement();
-	      String sql = "CREATE TABLE  IF NOT EXISTS TrueFalseQuestion " +
+	      String sql = "DROP TABLE IF EXISTS TrueFalseQuestion";
+	      stmt.executeUpdate(sql);
+	      sql = "CREATE TABLE TrueFalseQuestion " +
 	                   " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
 	                   " QUESTION       TEXT    	NOT NULL, " + 
 	                   " ANSWER         BOOLEAN     NOT NULL, " +
@@ -22,7 +24,9 @@ public class TriviaMazeQuestion {
 	      stmt.executeUpdate(sql);
 	      
 	      stmt = c.createStatement();
-	      String sql2 = "CREATE TABLE  IF NOT EXISTS multipleChoiceQuestion " +
+	      String sql2 = "DROP TABLE IF EXISTS multipleChoiceQuestion";
+	      stmt.executeUpdate(sql2);
+	      sql2 = "CREATE TABLE  multipleChoiceQuestion " +
 	                   " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
 	                   " QUESTION       TEXT    	NOT NULL, " + 
 	                   " A         TEXT     NOT NULL, " +
@@ -86,7 +90,7 @@ public class TriviaMazeQuestion {
             BufferedReader fp = new BufferedReader(new FileReader("TF.txt"));
             while((vals = fp.readLine()) != null)
             {
-            	String[] line = vals.split(",");
+            	String[] line = vals.split(", ");
             	if(line.length < 2)
             		System.out.println("error" + line[0]);
             	int answerVal;
@@ -133,7 +137,7 @@ public class TriviaMazeQuestion {
             BufferedReader fp = new BufferedReader(new FileReader("MC.txt"));
             while((vals = fp.readLine()) != null)
             {
-            	String[] line = vals.split(",");
+            	String[] line = vals.split(", ");
             	if(line.length < 5)
             		System.out.println("error" + line[0]);
             	try
